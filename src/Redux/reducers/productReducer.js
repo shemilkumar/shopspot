@@ -7,11 +7,15 @@ const initialState = {
   isSelectedLoading: false,
   isSelectedError: false,
   selectedProduct: {},
+  uid: "",
 };
 
 export const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.SET_PRODUCTS:
+      return { ...state, allProducts: action.payload };
+
+    case ActionTypes.FETCH_PRODUCTS:
       return { ...state, allProducts: action.payload };
       break;
 

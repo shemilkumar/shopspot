@@ -22,8 +22,10 @@ function Home({ products }) {
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{product.brand}</span>
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{product.price}</span>
               </div>
-              <button className="hover:bg-blue-800 absolute inset-x-0 bottom-0 mt-3 uppercase text-white bg-blue-600 py-3 px-8 rounded-md font-poppins font-semibold text-lg">
-                View
+            </Link>
+            <Link to='/cart'>
+              <button data = {product} className="hover:bg-blue-700 absolute inset-x-0 bottom-0 mt-3 uppercase text-white bg-red-600 py-3 px-8 rounded-md font-poppins font-semibold text-lg">
+                Cart
               </button>
             </Link>
           </div>

@@ -6,6 +6,8 @@ import {
 } from "../Redux/actions/productActions";
 import { useEffect } from "react";
 
+//  Fetch Using CUSTOM HOOK instead of REDUX THUNK - Just exploring the custom hook 😁
+
 function useFetchProduct(id) {
   // REDUX
   const dispatch = useDispatch();

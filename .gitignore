@@ -16,7 +16,7 @@ sample.json
 package-lock.json
 postcss.config.cjs
 vite.config.js
-
+firebase-config.js
 
 # Editor directories and files
 .vscode/*

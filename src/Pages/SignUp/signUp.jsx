@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 function SignUpPage({signUp}) {
 
@@ -74,9 +75,11 @@ function SignUpPage({signUp}) {
 
                     <div className="text-grey-dark mt-6">
                         Already have an account?
+                        <Link to='/login'>
                         <a className="no-underline border-b border-blue text-blue" href="../login/">
                             Log in
-                        </a>.
+                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

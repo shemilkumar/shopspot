@@ -1,10 +1,12 @@
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth, userCollectionRef } from "./firebase-config";
-import { addDoc } from "firebase/firestore";
+import { auth, db } from "./firebase-config";
+import { setDoc, doc } from "firebase/firestore";
 import { ActionTypes } from "../Redux/constants/actionTypes";
+import firebaseDbService from "./FirebaseDbService";
 
 class FirebaseAuthService {
   constructor() {}
@@ -22,12 +24,32 @@ class FirebaseAuthService {
             });
 
             // uploading user details on firebase
-            addDoc(userCollectionRef, {
-              uid: credentials.user.uid,
+            // addDoc(userCollectionRef, {
+            //   uid: credentials.user.uid,
+            //   name,
+            //   email,
+            //   password,
+            // });
+
+            firebaseDbService.setUserData(credentials.user.uid, {
               name,
               email,
-              password,
             });
+
+            // const userDocRef = doc(db, "users", `${credentials.user.uid}`);
+
+            // setDoc(userDocRef, {
+            //   uid: credentials.user.uid,
+            //   name,
+            //   email,
+            //   password,
+            // })
+            //   .then(() => console.log("User details added to the Database"))
+            //   .catch((error) => console.log(error.message));
+
+            // onAuthStateChanged(auth, (user) => {
+            //   if (user) console.log(user);
+            // });
 
             console.log("Data successfully saved in Storage");
           })

@@ -26,3 +26,11 @@ module.exports = {
   },
   plugins: [],
 };
+
+// #2fbba4
+// #fbeec1
+
+// Avenir Next
+// Lato
+// Sen
+// nunito sans

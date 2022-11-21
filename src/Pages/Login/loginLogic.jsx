@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import LoginPage from "./loginPage";
 import firebaseAuthService from "../../Firebase/FirebaseAuthService";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function LoginLogic() {
@@ -10,6 +10,8 @@ function LoginLogic() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    // firebaseAuthService.currentUserService();
+
     const login = (loginEmail, loginPassword) =>
         dispatch(firebaseAuthService.loginService(loginEmail, loginPassword));
 
@@ -17,11 +19,11 @@ function LoginLogic() {
         userDetails.uid !== '' && navigate('/');
     }, [userDetails.uid]);
 
-  return (
-      <>
-          <LoginPage login={login} />
-      </>
-  )
+    return (
+        <>
+            <LoginPage login={login} />
+        </>
+    )
 }
 
 export default LoginLogic

@@ -1,25 +1,26 @@
 import React, { useEffect } from "react";
 import fetchAllProducts from "../../api/fetchAllProducts";
 import Spinner from "../Spinner";
-import Home from "./Home";
+import Home from "./Products";
 import { useDispatch, useSelector } from "react-redux";
 import firebaseDbService from "../../Firebase/FirebaseDbService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../Firebase/useAuth";
 
 function HomeLogic() {
   let fullProducts = [];
+  const filterCategory = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const products = useSelector((state) => state.allProducts.allProducts);
   const allSellProducts = useSelector((state) => state.user.sellAllProducts);
   const uid = useAuth();
 
-  const storeCartProduct = (product) => {
-    uid
-      ? firebaseDbService.storeCartProducts(product, uid)
-      : navigate("/login");
-  };
+  // const storeCartProduct = (product) => {
+  //   uid
+  //     ? firebaseDbService.storeCartProducts(product, uid)
+  //     : navigate("/login");
+  // };
 
   useEffect(() => {
     dispatch(fetchAllProducts());
@@ -35,14 +36,18 @@ function HomeLogic() {
     }
   }
 
-  console.log(products, allSellProducts);
+  // console.log(fullProducts);
 
   return (
     <>
       {fullProducts.length === 0 ? (
         <Spinner />
       ) : (
-        <Home fullProducts={fullProducts} storeCartProduct={storeCartProduct} />
+        <Home
+          wholeProducts={fullProducts}
+          // storeCartProduct={storeCartProduct}
+          filterCategory={filterCategory.category}
+        />
       )}
     </>
   );

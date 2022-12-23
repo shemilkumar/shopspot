@@ -8,19 +8,36 @@ import {
   addDoc,
   query,
   where,
+  deleteDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { ActionTypes } from "../Redux/constants/actionTypes";
 
 class FirebaseDbService {
   constructor() {}
 
-  storeCartProducts(product, uid) {
+  storeCartProducts(product, uid, navigate, pass = false) {
     try {
       // console.log(uid);
+      if (!uid) {
+        navigate("/login");
+        console.log("yes");
+        return;
+      }
+
       const cartDocRef = doc(db, `Cart ${uid}`, `${product.id}`);
 
-      setDoc(cartDocRef, product)
-        .then(() => alert("Product added to the cart"))
+      setDoc(cartDocRef, {
+        ...product,
+        quantity: 1,
+        subTotal: product.price,
+      })
+        .then(() => {
+          if (pass) navigate("/cart");
+          else {
+            // alert("product added");
+          }
+        })
         .catch((error) => console.log(error.message));
     } catch (error) {
       console.log(error.message);
@@ -35,7 +52,7 @@ class FirebaseDbService {
 
         querySnapshot.forEach((doc) => {
           cartProducts.push(doc.data());
-          console.log(cartProducts);
+          // console.log(cartProducts);
         });
 
         dispatch({
@@ -50,29 +67,76 @@ class FirebaseDbService {
     }
   }
 
+  addDataCartProducts(uid, id, quantity, price) {
+    try {
+      return async function (dispatch) {
+        const cartProductRef = doc(db, `Cart ${uid}`, `${id}`);
+
+        console.log(+quantity);
+
+        await updateDoc(cartProductRef, {
+          quantity: +quantity,
+          subTotal: price * +quantity,
+        });
+
+        console.log("Data updated");
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  deleteCartProduct(uid, id) {
+    try {
+      return async function (dispatch) {
+        await deleteDoc(doc(db, `Cart ${uid}`, `${id}`));
+        console.log("deleted successfully");
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   setUserData(uid, data) {
     const userDocRef = doc(db, "users", `${uid}`);
 
     setDoc(userDocRef, {
       ...data,
+      name: data.firstName + " " + data.lastName,
       uid,
     })
-      .then(() => console.log("User details added to the Database"))
+      .then(() => {
+        console.log("User details added to the Database");
+      })
       .catch((error) => console.log(error.message));
   }
 
-  getUserData(uid) {
+  getUserData(uid = null, anotherUser = false) {
     try {
       return async function (dispatch) {
+        if (!uid) {
+          dispatch({
+            type: ActionTypes.SET_USER,
+            payload: {},
+          });
+
+          return;
+        }
+
         const docRef = doc(db, "users", uid);
         const docSnap = await getDoc(docRef);
 
         // console.log(docSnap.data());
         if (docSnap.exists()) {
-          dispatch({
-            type: ActionTypes.SET_USER,
-            payload: docSnap.data(),
-          });
+          anotherUser
+            ? dispatch({
+                type: ActionTypes.SET_USER_PROFILE,
+                payload: docSnap.data(),
+              })
+            : dispatch({
+                type: ActionTypes.SET_USER,
+                payload: docSnap.data(),
+              });
         }
       };
     } catch (error) {
@@ -80,18 +144,67 @@ class FirebaseDbService {
     }
   }
 
-  setSellProductData(uid, data) {
-    const sellProductDocRef = collection(db, "sellProducts");
+  getAllUsers() {
+    try {
+      const allUsers = [];
 
+      return async function (dispatch) {
+        const usersRef = collection(db, "users");
+        const snapshot = await getDocs(usersRef);
+
+        snapshot.forEach((doc) => allUsers.push(doc.data()));
+
+        dispatch({
+          type: ActionTypes.SET_ALL_USERS,
+          payload: allUsers,
+        });
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  setSellProductData(uid, data, navigate) {
+    const sellProductDocRef = collection(db, "sellProducts");
+    // console.log(uid, data, sellProductDocRef);
     addDoc(sellProductDocRef, {
       uid,
       ...data,
     })
-      .then(() => console.log("Selling product details added to the Database"))
+      .then(() => {
+        console.log("Selling product details added to the Database");
+        navigate("/profile");
+      })
       .catch((error) => console.log(error.message));
   }
 
-  getSellProductsByUser(uid) {
+  getSellProduct(id) {
+    try {
+      return async function (dispatch) {
+        dispatch({
+          type: ActionTypes.GET_SINGLE_SELL_PRODUCT,
+          payload: {},
+        });
+
+        const q = query(collection(db, "sellProducts"), where("id", "==", id));
+
+        const querySnapshot = await getDocs(q);
+
+        querySnapshot.forEach((doc) => {
+          dispatch({
+            type: ActionTypes.GET_SINGLE_SELL_PRODUCT,
+            payload: doc.data(),
+          });
+
+          // console.log("hi", doc.data());
+        });
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  getSellProductsByUser(uid, anotherUser = false) {
     try {
       return async function (dispatch) {
         const sellProducts = [];
@@ -104,11 +217,15 @@ class FirebaseDbService {
 
         querySnapshot.forEach((doc) => sellProducts.push(doc.data()));
 
-        sellProducts.length > 0 &&
-          dispatch({
-            type: ActionTypes.SET_SELL_PRODUCTS_BY_USER,
-            payload: sellProducts,
-          });
+        anotherUser
+          ? dispatch({
+              type: ActionTypes.SET_SELL_PRODUCTS_BY_ANOTHER_USER,
+              payload: sellProducts,
+            })
+          : dispatch({
+              type: ActionTypes.SET_SELL_PRODUCTS_BY_USER,
+              payload: sellProducts,
+            });
       };
     } catch (error) {
       console.log(error);

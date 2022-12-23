@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { auth, db } from "./firebase-config";
 import { setDoc, doc } from "firebase/firestore";
@@ -11,7 +12,7 @@ import firebaseDbService from "./FirebaseDbService";
 class FirebaseAuthService {
   constructor() {}
 
-  signUpService(email, password, name) {
+  signUpService(email, password, name, navigate) {
     try {
       return async function (dispatch) {
         //  Auth service
@@ -50,7 +51,7 @@ class FirebaseAuthService {
             // onAuthStateChanged(auth, (user) => {
             //   if (user) console.log(user);
             // });
-
+            navigate("/");
             console.log("Data successfully saved in Storage");
           })
           .catch((err) => console.log(err.message));
@@ -60,7 +61,7 @@ class FirebaseAuthService {
     }
   }
 
-  loginService(email, password) {
+  loginService(email, password, navigate) {
     try {
       return async function (dispatch) {
         console.log("working");
@@ -71,12 +72,32 @@ class FirebaseAuthService {
               type: ActionTypes.SET_UID,
               payload: credentials.user,
             });
+
+            navigate("/");
           })
           .catch((error) => console.log(error.message));
       };
     } catch (error) {
       console.log(error.message);
     }
+  }
+
+  signOutService() {
+    return async function (dispatch) {
+      signOut(auth).then(() => {
+        console.log("signOut");
+
+        dispatch({
+          type: ActionTypes.SET_USER,
+          payload: {},
+        });
+
+        dispatch({
+          type: ActionTypes.SET_SELL_PRODUCTS_BY_USER,
+          payload: [],
+        });
+      });
+    };
   }
 }
 

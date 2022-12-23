@@ -3,29 +3,33 @@ import SellPage from "./sellPage";
 import useAuth from "../../Firebase/useAuth";
 import firebaseDbService from "../../Firebase/FirebaseDbService";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function SellPageLogic() {
   const uid = useAuth();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const sellProductByUser = useSelector(
     (state) => state.user.sellProductByUser
   );
 
+  useEffect(() => {
+    console.log("Result =>", sellProductByUser);
+    // console.log(uid);
+    // !uid && navigate("/login");
+  }, [sellProductByUser, uid]);
+
   const setSellProduct = (sellProduct) =>
-    uid && firebaseDbService.setSellProductData(uid, sellProduct);
+    uid && firebaseDbService.setSellProductData(uid, sellProduct, navigate);
 
   // const show = (e) => {
   //   e.preventDefault();
   //   uid && dispatch(firebaseDbService.getSellProductsByUser(uid));
   // };
 
-  useEffect(() => {
-    console.log("Result =>", sellProductByUser);
-  }, [sellProductByUser]);
-
   return (
     <>
-      <SellPage setSellProduct={setSellProduct} />
+      {uid ? <SellPage setSellProduct={setSellProduct} /> : navigate("/login")}
     </>
   );
 }

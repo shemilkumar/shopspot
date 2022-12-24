@@ -48,7 +48,7 @@ function Features() {
               </div>
             </Link>
           </div>
-          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <div className=" lg:mt-0 lg:col-span-5 lg:flex">
             <LazyLoadImage
               effect="blur"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
@@ -60,7 +60,7 @@ function Features() {
 
       <section className="bg-gray-100 dark:bg-gray-900 border-b-2 pb-16">
         <div className="grid max-w-same px-1 mx-auto lg:gap-8 xl:gap-0 lg:py-1 lg:grid-cols-12">
-          <div className="hidden max-w-screen-ss lg:mt-0 lg:col-span-5 lg:flex">
+          <div className="max-w-screen-ss lg:mt-0 lg:col-span-5 lg:flex">
             <LazyLoadImage effect="blur" src={image} alt="mockup" />
           </div>
           <div className="ml-auto place-self-center lg:col-span-7">

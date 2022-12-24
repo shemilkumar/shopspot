@@ -5,6 +5,10 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { MdLogin } from "react-icons/md";
 import { AiOutlinePoweroff } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
+import { TfiMenu } from "react-icons/tfi";
+// import { IoClose } from "react-icons/io";
+import { VscChromeClose } from "react-icons/vsc";
+
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Firebase/useAuth";
 import FirebaseAuthService from "../Firebase/FirebaseAuthService";
@@ -28,6 +32,7 @@ function Navbar({ currentPage, pages }) {
 
   const [scroll, setScroll] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [openNav, setOpenNav] = useState(false);
 
   const [show, setShow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -50,6 +55,11 @@ function Navbar({ currentPage, pages }) {
     uid && dispatch(FirebaseDbService.getUserData(uid));
     uid && dispatch(FirebaseDbService.getCartProducts(uid));
     // console.log(uid);
+
+    // if (window.innerWidth < 1060) {
+    //   console.log(window.innerWidth);
+    //   return;
+    // }
 
     const bgColorChange = () =>
       window.scrollY >= 100 ? setScroll(true) : setScroll(false);
@@ -77,38 +87,56 @@ function Navbar({ currentPage, pages }) {
     >
       <nav
         className={`${
-          scroll ? "bg-gray-100" : "bg-transparent"
-        } fixed flex flex-col w-full top-0 z-50 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 transition-all ease-in-out duration-500`}
+          scroll ? "bg-gray-100" : "md:bg-transparent bg-gray-200"
+        } fixed md:flex flex-col w-full top-0 z-50 border-gray-200 md:px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 transition-all ease-in-out duration-500`}
       >
-        <div className="mx-auto my-1">
-          {/* <Link to={"/"}>
+        {/* <div className="mx-auto my-1"> */}
+        {/* <Link to={"/"}>
             <span className="font-sen self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
               SHOP<span className="text-blue-700">SPOT</span>
             </span>
           </Link> */}
-        </div>
+        {/* </div> */}
 
-        <div className="relative container flex flex-wrap items-center mx-auto max-w-same">
-          <div className="flex items-center w-1/3">
+        <div className="relative flex flex-col w-full md:flex-wrap md:flex-row md:items-center md:mx-auto md:max-w-same">
+          <div
+            className={`${
+              openNav ? "pb-4 border-b-2 border-blue-700" : ""
+            } flex justify-between w-full md:w-1/3 md:pb-0 px-3`}
+          >
             <Link to={"/"}>
-              <span className="font-sen self-center text-3xl font-semibold whitespace-nowrap dark:text-white mr-8">
+              <span className="font-sen self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
                 SHOP<span className="text-blue-700">SPOT</span>
               </span>
             </Link>
 
-            <div className="ml-0 flex justify-center items-center">
-              {showSearch && (
-                <div className="mr-2">
-                  <Search />
+            <div className="flex justify-center items-center">
+              <div className="mr-4 ml-8 flex justify-center items-center">
+                {showSearch && (
+                  <div className="mr-2">
+                    <Search />
+                  </div>
+                )}
+                <div onClick={() => setShowSearch(!showSearch)}>
+                  <FiSearch className="h-6 w-6 text-gray-400" />
                 </div>
-              )}
-              <div onClick={() => setShowSearch(!showSearch)}>
-                <FiSearch className="h-6 w-6 text-gray-400" />
               </div>
+
+              {openNav ? (
+                <VscChromeClose
+                  className="h-6 w-6"
+                  onClick={() => setOpenNav(!openNav)}
+                />
+              ) : (
+                <TfiMenu
+                  className="h-5 w-5"
+                  onClick={() => setOpenNav(!openNav)}
+                />
+              )}
             </div>
           </div>
 
-          <div className="flex justify-end w-1/3 md:order-2">
+          <div className="md:flex justify-end md:w-1/3 md:order-2 hidden">
             {/* <div className="h-18 w-18">
             </div> */}
             <div className="h-18 w-18">
@@ -187,15 +215,21 @@ function Navbar({ currentPage, pages }) {
                 placeholder="Search..."
               />
             </div> */}
-          <div className="flex w-1/3">
-            <ul className="m-auto flex flex-col p-4 font-bold text-sm mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+
+          <div
+            className={`${
+              openNav ? "top-16" : "-top-80"
+            } md:flex md:w-1/3 md:static md:mt-0 absolute w-full left-0 bg-gray-200 md:bg-transparent transition-all duration-500 ease-in-out`}
+          >
+            <ul className="md:m-auto flex flex-col  justify-center md:p-4 font-bold text-sm  rounded-lg md:flex-row md:space-x-8 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:mb-0">
               {pages.map((page, i) => {
                 if (page === currentPage) {
                   return (
                     <li key={i}>
                       <Link
                         to={`/${page.toLowerCase()}`}
-                        className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500 md:p-0 dark:text-white"
+                        className="block mb-5 md:mb-0 py-2 pl-3 pr-4 rounded
+                         md:bg-transparent text-blue-500 md:p-0 dark:text-white"
                       >
                         {page}
                       </Link>
@@ -206,7 +240,7 @@ function Navbar({ currentPage, pages }) {
                     <li key={i}>
                       <Link
                         to={`/${page.toLowerCase()}`}
-                        className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                        className="block mb-5 md:mb-0 py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                       >
                         {page}
                       </Link>

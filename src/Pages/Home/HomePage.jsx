@@ -16,7 +16,7 @@ function HomePage() {
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
       {/* <Alert /> */}
-      <LogoutModal />
+      {/* <LogoutModal /> */}
       <Banner />
       <Hero />
       <Features />

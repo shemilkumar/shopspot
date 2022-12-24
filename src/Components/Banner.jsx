@@ -8,20 +8,20 @@ import "react-toastify/dist/ReactToastify.css";
 function Banner() {
   return (
     <div>
-      <div className="w-full h-screen relative">
+      <div className="md:w-full w-screen h-screen relative">
         <img
           src={image}
           alt="bg"
-          className="-z-10 w-full h-screen object-cover absolute"
+          className="-z-10 h-1/2 object-cover absolute md:w-full w-screen md:h-screen "
         />
 
         <div className="w-full h-full flex justify-center items-center">
           <div className="max-w-same px-3">
             <div className="w-1/3">
-              <h1 className="text-8xl font-bold">SHOPSPOT</h1>
+              <h1 className="md:text-8xl text-3xl font-bold">SHOPSPOT</h1>
             </div>
 
-            <p className="w-5/12 mt-4 text-xl font-lg">
+            <p className="md:w-5/12 mt-4 md:text-xl md:font-lg text-sm font-medium">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Perferendis facilis at aperiam ab ratione corporis molestias. Quae
               eveniet totam quibusdam? Possimus, iusto nobis quo mollitia minima

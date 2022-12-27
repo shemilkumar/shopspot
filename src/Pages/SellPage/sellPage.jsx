@@ -70,7 +70,7 @@ function SellPage({ setSellProduct }) {
         };
       });
     }
-    console.log(inputs);
+    // console.log(inputs);
   }, [images, thumbnailUrl]);
 
   // console.log(inputs);

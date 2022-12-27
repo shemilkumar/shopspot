@@ -2,20 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import image from "../assets/Images/laptop.jpg";
 
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Banner() {
   return (
     <div>
-      <div className="md:w-full w-screen h-screen relative">
+      <div className="w-full md:h-screen h-[500px] relative ">
         <img
           src={image}
           alt="bg"
-          className="-z-10 h-1/2 object-cover absolute md:w-full w-screen md:h-screen "
+          className="-z-10 object-cover absolute md:w-full w-screen md:h-screen h-full"
         />
 
-        <div className="w-full h-full flex justify-center items-center">
+        <div className="w-full md:h-full h-full flex justify-center md:items-center items-end ">
           <div className="max-w-same px-3">
             <div className="w-1/3">
               <h1 className="md:text-8xl text-3xl font-bold">SHOPSPOT</h1>
@@ -27,11 +26,11 @@ function Banner() {
               eveniet totam quibusdam? Possimus, iusto nobis quo mollitia minima
             </p>
 
-            <div className="w-1/3 text-center">
+            <div className="md:w-1/3">
               <Link to={"/products"}>
                 <button
                   type="button"
-                  className="mt-10 px-10 text-xl font-semibold font-sen uppercase hover:text-white  border-blue-700 border-4 hover:bg-blue-700 bg-transparent text-blue-700 focus:ring-4 focus:ring-blue-300 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  className="md:mt-10 mt-4 px-2 py-1.5 md:px-10 md:text-xl text-md font-semibold font-sen uppercase hover:text-white  border-blue-700 border-2 md:border-4 hover:bg-blue-700 bg-transparent text-blue-700 focus:ring-4 focus:ring-blue-300 md:py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                   Shop Now
                 </button>

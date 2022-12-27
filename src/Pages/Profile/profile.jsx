@@ -13,7 +13,7 @@ function Profile({ user, sellProductByUser, userUid }) {
       <div>
         <main className="min-h-screen mt-28 bg-gray-100 bg-opacity-25">
           <div className=" lg:w-8/12 lg:mx-auto mb-8">
-            <header className="flex flex-wrap items-center p-4 md:py-8">
+            <header className="flex md:flex-row flex-wrap md:items-center p-4 md:py-8">
               <div className="md:w-3/12 md:ml-16">
                 <img
                   className="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full
@@ -93,15 +93,18 @@ function Profile({ user, sellProductByUser, userUid }) {
                 </li>
               </ul>
 
-              <div className="flex flex-wrap -mx-px md:-mx-3">
+              <div className="grid grid-cols-3 gap-0.5 md:flex md:flex-wrap  -mx-px md:-mx-3">
                 {sellProductByUser.length === 0 ? (
                   <h1 className="m-auto text-4xl mt-8">No products</h1>
                 ) : (
                   sellProductByUser.map((product, index) => {
                     return (
-                      <div key={index} className="w-1/3 p-px md:px-3">
+                      <div
+                        key={index}
+                        className="md:w-1/3 md:h-full p-px md:px-3"
+                      >
                         <a>
-                          <article className="post h-80 w-72 bg-gray-100 text-white relative pb-full md:mb-6">
+                          <article className="m-auto md:h-64 md:w-56 h-32 bg-gray-100 text-white relative pb-full md:mb-6">
                             <img
                               className="w-full h-full absolute left-0 top-0 object-cover"
                               src={product.thumbnail}

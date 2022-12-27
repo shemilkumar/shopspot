@@ -5,6 +5,7 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import Alert from "../Helper/Alert";
 import { ActionTypes } from "../Redux/constants/actionTypes";
 
 class FirebaseStorage {
@@ -63,6 +64,7 @@ class FirebaseStorage {
               type: ActionTypes.ADD_IMAGE,
               payload: url,
             });
+            // <Alert />;
           })
       );
     };
@@ -92,6 +94,7 @@ class FirebaseStorage {
             });
 
             alert("Images uploaded successfully");
+            // <Alert />;
           })
       );
     };

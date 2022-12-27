@@ -5,18 +5,14 @@ import Hero from "../../Components/Hero";
 import Navbar from "../../Components/Navbar";
 import SellSection from "../../Components/SellSection";
 import Testimonials from "../../Components/Testimonials";
-import Alert from "../../Helper/Alert";
-import LogoutModal from "../../Helper/LogoutModal";
 
 function HomePage() {
   return (
-    <div>
+    <div className="flex flex-col">
       <Navbar
         currentPage="Home"
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
-      {/* <Alert /> */}
-      {/* <LogoutModal /> */}
       <Banner />
       <Hero />
       <Features />

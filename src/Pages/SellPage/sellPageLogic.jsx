@@ -14,7 +14,7 @@ function SellPageLogic() {
   );
 
   useEffect(() => {
-    console.log("Result =>", sellProductByUser);
+    // console.log("Result =>", sellProductByUser);
     // console.log(uid);
     // !uid && navigate("/login");
   }, [sellProductByUser, uid]);

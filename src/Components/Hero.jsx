@@ -12,15 +12,15 @@ function Hero() {
         <div className="w-full h-full flex justify-center items-center">
           <div className="md:w-[90%] w-[95%] px-3">
             <div className="h-1/3 text-center flex flex-col">
-              <h1 className="text-5xl font-bold">Products</h1>
+              <h1 className="text-3xl md:text-5xl font-bold">Products</h1>
               Offer Closes in
-              <div className="mt-2 text-4xl font-medium font-poppins border-b-2 pb-5">
+              <div className="mt-2 text-3xl md:text-4xl font-medium font-poppins border-b-2 pb-5">
                 <Countdown />
               </div>
             </div>
 
             <div className="flex justify-center mt-4">
-              <div className="grid md:grid-cols-3 md:gap-x-40 md:gap-y-10 grid-cols-2">
+              <div className="grid md:grid-cols-3 md:gap-x-24 sm:gap-x-16 md:gap-y-10 xs:grid-cols-2 grid-cols-1">
                 {readymadeCardProducts.map((product, key) => (
                   <Card key={key} product={product} />
                 ))}

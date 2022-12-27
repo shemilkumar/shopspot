@@ -16,8 +16,8 @@ function CartList({ cartProduct, uid, navigate }) {
 
   return (
     <>
-      <div className="flex justify-between w-[90%] py-8 m-auto border-b-2">
-        <div className="w-2/4 flex justify-center items-center">
+      <div className="grid grid-cols-2 place-items-center md:flex justify-between w-[90%] py-8 m-auto border-b-2">
+        <div className="col-span-2 md:w-2/4 flex justify-center items-center">
           <div className="w-1/4 flex flex-col justify-center">
             <Link to={`/product/${cartProduct.id}`}>
               <img src={cartProduct.images[0]} alt="" />
@@ -63,7 +63,7 @@ function CartList({ cartProduct, uid, navigate }) {
             </Link>
           </div>
         </div>
-        <div className="w-1/4 m-auto text-center text-xl font-semibold">
+        <div className="items-center w-1/4 m-auto text-center text-xl font-semibold">
           <select
             name="quantity"
             id="quantity"
@@ -95,7 +95,7 @@ function CartList({ cartProduct, uid, navigate }) {
             })}
           </select>
         </div>
-        <div className="w-1/4 m-auto text-center text-3xl font-semibold">
+        <div className="w-1/4 m-auto text-center md:text-3xl text-2xl font-semibold">
           {priceConvert(subTotal)}
         </div>
       </div>

@@ -20,7 +20,7 @@ function ProductDetail({ product, navigate, uid }) {
       />
 
       <div className="w-full min-h-screen flex justify-center">
-        <div className="grid grid-cols-2 m-auto w-[90%] h-[80%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:m-auto mt-24 w-[90%] h-[80%]">
           <div className="m-auto w-[100%] h-[100%]">
             <ImageGrid images={product.images} />
           </div>

@@ -6,9 +6,6 @@ import { priceConvert } from "../Helper/priceConvert";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
 function Card({ product, alertShow }) {
   const uid = useAuth();
   const navigate = useNavigate();
@@ -19,10 +16,10 @@ function Card({ product, alertShow }) {
     <div>
       <div className="w-full max-w-xs bg-white md:rounded border-2  shadow-xl dark:bg-gray-800 dark:border-gray-700">
         <Link to={product.id && `/product/${product.id}`}>
-          <div className="flex justify-center items-center h-40">
+          <div className="flex justify-center items-center h-full">
             <LazyLoadImage
               effect="blur"
-              className="m-auto md:h-60 h-35 p-1 rounded-t-lg object-cover"
+              className="m-auto md:h-60 h-40 p-1 rounded-t-lg object-cover"
               src={product.images[0]}
               alt="product image"
               // placeholderSrc={placeholderImage}
@@ -83,7 +80,7 @@ function Card({ product, alertShow }) {
                 FirebaseDbService.storeCartProducts(product, uid, navigate);
                 alertShow();
               }}
-              className="md:font-bold text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-xs md:text-sm md:px-5 px-2 md:py-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="md:font-bold text-white bg-blue-700 tracking-tighter hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-xs md:text-sm md:px-5 px-2 md:py-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Add to cart
             </button>

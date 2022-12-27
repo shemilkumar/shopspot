@@ -34,7 +34,7 @@ function ProfileLogic() {
     uid === null && navigate("/login");
   }, [userUid, uid]);
 
-  console.log(sellProductByUser);
+  // console.log(sellProductByUser);
 
   return (
     <>

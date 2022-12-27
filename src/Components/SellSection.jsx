@@ -15,11 +15,13 @@ function SellSection() {
         <div className="absolute w-full h-full flex justify-center items-center">
           <div className="max-w-same flex flex-col justify-center text-gray-100">
             <div className="">
-              <h1 className="text-8xl font-bold text-center">SHOPSPOT</h1>
+              <h1 className="text-4xl md:text-8xl font-bold text-center">
+                SHOPSPOT
+              </h1>
             </div>
 
             <div className="flex justify-center ">
-              <p className="w-1/2 mt-4 text-xl font-lg text-white">
+              <p className="md:w-1/2 mt-4 md:text-xl font-lg text-white">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Perferendis facilis at aperiam ab ratione corporis molestias.
                 Quae eveniet totam quibusdam? Possimus, iusto nobis quo mollitia
@@ -31,9 +33,9 @@ function SellSection() {
               <Link to={"/sell"}>
                 <button
                   type="button"
-                  className="cursor-pointer px-1 py-1 text-2xl font-semibold from-rose-400 via-fuchsia-500 to-indigo-500 bg-gradient-to-r"
+                  className="mt-4 cursor-pointer px-1 py-1 md:text-2xl font-semibold from-rose-400 via-fuchsia-500 to-indigo-500 bg-gradient-to-r"
                 >
-                  <span className="cursor-pointer block text-gray-100  px-16 py-2 font-semibold bg-gray-900 bg-opacity-75 uppercase hover:bg-opacity-0">
+                  <span className="cursor-pointer block text-gray-100  md:px-16 px-10 md:py-2 py-1.5 font-semibold bg-gray-900 bg-opacity-75 uppercase hover:bg-opacity-0">
                     Sell
                   </span>
                 </button>
@@ -42,7 +44,6 @@ function SellSection() {
           </div>
         </div>
       </div>
-      ;
     </>
   );
 }

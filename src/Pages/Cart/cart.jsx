@@ -34,7 +34,7 @@ function Cart({ cartProducts }) {
         />
         <div className="flex flex-col">
           <div className="w-full">
-            <h1 className="text-5xl font-semibold text-center mt-24 mb-16 mx-24">
+            <h1 className="md:text-5xl text-3xl font-semibold text-center mt-24 mb-8 md:mb-16 mx-24">
               Shopping Cart
             </h1>
           </div>
@@ -71,7 +71,7 @@ function Cart({ cartProducts }) {
                 <div className="w-[90%] flex flex-col items-end mb-16">
                   <p className="text-2xl text-gray-500 ">
                     Sub Total:{" "}
-                    <span className="text-4xl font-semibold tracking-wider text-black">
+                    <span className="md:text-4xl text-3xl font-semibold tracking-wider text-black">
                       {priceConvert(totalPrice)}
                     </span>
                   </p>

@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import image from "../assets/Images/laptop.jpg";
-
-import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 function Banner() {
   return (
@@ -44,26 +42,3 @@ function Banner() {
 }
 
 export default Banner;
-
-{
-  /* <div className="flex justify-center">
-  <div className="pt-80 h-screen max-w-same flex">
-    <div className="align-middle">
-      <h1 className="text-8xl font-bold text-black">
-        SHOP<span className="text-blue-700">SPOT</span>
-      </h1>
-      <p className="mt-10 max-w-xl text-xl font-lg text-black">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolorum
-        perspiciatis ab? Repellat maiores consequatur illo sint ipsum dolores
-        labore!
-      </p>
-      <button
-        type="button"
-        className="mt-10 p-8 pl-12 pr-12 text-xl text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      >
-        Default
-      </button>
-    </div>
-  </div>
-</div>; */
-}

@@ -7,6 +7,8 @@ import { categories, fashionCategories } from "../../Constants/constants";
 import { FaListUl } from "react-icons/fa";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { AiOutlineArrowUp } from "react-icons/ai";
+import { TbArrowsLeftRight } from "react-icons/tb";
+
 import noData from "../../assets/Images/undraw_No_data_re_kwbl.png";
 import Spinner from "../Spinner";
 import Alert from "../../Helper/Alert";
@@ -146,7 +148,7 @@ function Home({ wholeProducts, filterCategory }) {
   };
 
   return (
-    <>
+    <div className={showFilter ? "fixed" : ""}>
       <Navbar
         currentPage="Products"
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
@@ -160,12 +162,12 @@ function Home({ wholeProducts, filterCategory }) {
               : "opacity-0 -z-30 md:hidden"
           } absolute top-0 left-0 h-screen w-screen bg-gray-800 overflow-y-hidden transition-all duration-1000 ease-in-out`}
         ></div>
-        <div className="grid grid-cols-4 max-w-same mt-24 m-auto">
+        <div className="grid grid-cols-4 md:max-w-same w-[95%] mt-24 m-auto">
           <div
             className={`${
               showFilter
                 ? "z-50 md:z-0 md:translate-x-0"
-                : "md:translate-x-0 -translate-x-64 md:z-0 -z-50"
+                : "md:translate-x-0 -translate-x-full md:z-0 -z-50"
             }md:row-start-1 md:row-span-6 md:static absolute h-screen md:h-full
            top-0 left-0 bg-white md:bg-transparent transition-all duration-500 ease-in-out`}
           >
@@ -189,23 +191,9 @@ function Home({ wholeProducts, filterCategory }) {
               </div>
               <div className="mt-8">
                 <h1 className="text-lg font-semibold mb-3">Category</h1>
-                {showMore
-                  ? categories.map((cat, i) => {
-                      return (
-                        <div key={i}>
-                          <button
-                            className="text-sm cursor-pointer text-gray-600 mb-1 focus:font-bold focus:text-blue-500 p-0"
-                            key={i}
-                            onClick={() => categoryFilter(cat)}
-                          >
-                            {cat}
-                          </button>
-                        </div>
-                      );
-                    })
-                  : categories
-                      .filter((_, i) => i < 5)
-                      .map((cat, i) => {
+                <div className="grid grid-cols-2 md:grid-cols-1">
+                  {showMore
+                    ? categories.map((cat, i) => {
                         return (
                           <div key={i}>
                             <button
@@ -217,7 +205,23 @@ function Home({ wholeProducts, filterCategory }) {
                             </button>
                           </div>
                         );
-                      })}
+                      })
+                    : categories
+                        .filter((_, i) => i < 5)
+                        .map((cat, i) => {
+                          return (
+                            <div key={i}>
+                              <button
+                                className="text-sm cursor-pointer text-gray-600 mb-1 focus:font-bold focus:text-blue-500 p-0"
+                                key={i}
+                                onClick={() => categoryFilter(cat)}
+                              >
+                                {cat}
+                              </button>
+                            </div>
+                          );
+                        })}
+                </div>
               </div>
               <span
                 className="text-blue-700 cursor-pointer"
@@ -268,7 +272,7 @@ function Home({ wholeProducts, filterCategory }) {
                 </div>
               </div>
 
-              <div className="clear mt-8">
+              <div className="md:mt-8 mt-4">
                 <button
                   onClick={(e) => sortProducts(e)}
                   className="py-2 px-4 bg-blue-600 text-white text-sm font-lg rounder-2xl hover:bg-blue-800"
@@ -280,12 +284,12 @@ function Home({ wholeProducts, filterCategory }) {
           </div>
 
           <div className="md:col-start-2 row-start-1 md:col-span-3 col-span-4 mb-6">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <div className="flex justify-center items-center my-2">
                 <div
                   className={
                     grid === "list"
-                      ? "w-8 h-8 flex bg-green-400 text-white"
+                      ? "md:w-8 md:h-8 w-7 h-7 flex bg-green-400 text-white rounded-full"
                       : "w-8 h-8 flex text-gray-500"
                   }
                   onClick={() => {
@@ -293,12 +297,12 @@ function Home({ wholeProducts, filterCategory }) {
                     localStorage.setItem("grid", "list");
                   }}
                 >
-                  <FaListUl className="w-5 h-5 m-auto" />
+                  <FaListUl className="md:w-5 md:h-5 w-3.5 h-3.5 m-auto" />
                 </div>
                 <div
                   className={
                     grid === "grid"
-                      ? "w-8 h-8 flex bg-green-400 text-white"
+                      ? "md:w-8 md:h-8 w-7 h-7 flex bg-green-400 text-white rounded-full"
                       : "w-8 h-8 flex text-gray-500"
                   }
                   onClick={() => {
@@ -306,15 +310,8 @@ function Home({ wholeProducts, filterCategory }) {
                     localStorage.setItem("grid", "grid");
                   }}
                 >
-                  <BsFillGrid3X3GapFill className="w-5 h-5 m-auto" />
+                  <BsFillGrid3X3GapFill className="md:w-5 md:h-5 w-3.5 h-3.5 m-auto" />
                 </div>
-              </div>
-
-              <div
-                className="md:hidden bg-cyan-600 text-white rounded-full py-1 m-auto font-semibold text-md px-4 tracking-wider"
-                onClick={() => setShowFilter(!showFilter)}
-              >
-                filter
               </div>
 
               <div className="">
@@ -322,7 +319,7 @@ function Home({ wholeProducts, filterCategory }) {
                   Sort by{" "}
                 </label>
                 <select
-                  className="border-none"
+                  className="border-none text-sm w-40"
                   name="sort"
                   id="sort"
                   onChange={(e) => sortProducts(e.target.value)}
@@ -333,6 +330,13 @@ function Home({ wholeProducts, filterCategory }) {
                   <option value="rating">Rating</option>
                   <option value="discount">Discount</option>
                 </select>
+              </div>
+
+              <div
+                className="md:hidden flex justify-center items-center w-7 h-7 bg-cyan-600 text-white rounded-full py-2 font-semibold px-2 tracking-wider"
+                onClick={() => setShowFilter(!showFilter)}
+              >
+                <TbArrowsLeftRight />
               </div>
             </div>
           </div>
@@ -390,7 +394,7 @@ function Home({ wholeProducts, filterCategory }) {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

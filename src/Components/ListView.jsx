@@ -11,7 +11,7 @@ function ListView({ product, key }) {
         to={product.id ? `/product/${product.id}` : `/product/${index + 1000}`}
       >
         <div key={key} className="grid grid-cols-4 w-full">
-          <div className="flex">
+          <div className="flex items-center">
             <div className="">
               <LazyLoadImage
                 effect="blur"
@@ -23,9 +23,11 @@ function ListView({ product, key }) {
 
           <div className="col-start-2 col-span-2">
             <div className="flex justify-center">
-              <div className="w-2/3">
-                <h1 className="m-4 text-4xl font-thin">{product.title}</h1>
-                <h1 className="m-4 text-md">
+              <div className="md:w-2/3">
+                <h1 className="m-4 md:text-4xl text-2xl font-thin">
+                  {product.title}
+                </h1>
+                <h1 className="m-4 md:text-md text-sm">
                   <span
                     className={`px-2 py-1 rounded-xl ${
                       product.rating
@@ -38,10 +40,12 @@ function ListView({ product, key }) {
                       : "Second Product"}
                   </span>
                 </h1>
-                <p className="m-4 w-2/3">{product.description}</p>
+                <p className="m-4 md:w-2/3 w-10/12 text-xs md:text-base">
+                  {product.description}
+                </p>
 
                 <div className="flex m-4">
-                  <p className="mr-4 bg-gray-500 font-bold text-white rounded-xl py-1 px-2 text-sm">
+                  <p className="mr-4 bg-gray-500 font-bold text-white rounded-xl py-1 px-2 text-xs">
                     {product.category}
                   </p>
                   <p className="mr-4 bg-gray-500 font-semibold text-white rounded-xl py-1 px-2 text-xs">
@@ -53,14 +57,14 @@ function ListView({ product, key }) {
           </div>
 
           <div className="2">
-            <p className="mt-4 ml-4 text-xl text-red-500">
+            <p className="mt-4 md:ml-4 ml-1 text-lg md:text-xl text-red-500">
               {`-${product.discountPercentage.toFixed(1)}%`}
-              <span className="text-4xl text-black font-sen font-medium">
+              <span className="md:text-4xl text-xl text-black font-sen font-bold md:font-medium">
                 {" "}
                 {priceConvert(product.price)}
               </span>
             </p>
-            <p className="mx-4 my-0 text-gray-500 text-md">
+            <p className="md:mx-4 ml-1 my-0 text-gray-500 md:text-md text-sm">
               M.R.P :{" "}
               <strike className="strike">
                 {priceConvert(
@@ -69,7 +73,7 @@ function ListView({ product, key }) {
                 )}
               </strike>
             </p>
-            <p className="m-4 text-xs">Free delivery</p>
+            <p className="my-4 md:mx-4 mx-1 text-xs">Free delivery</p>
           </div>
         </div>
       </Link>

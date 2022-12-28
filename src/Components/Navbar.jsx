@@ -98,20 +98,20 @@ function Navbar({ currentPage, pages }) {
           </Link> */}
         {/* </div> */}
 
-        <div className="relative flex flex-col w-full md:flex-wrap md:flex-row md:items-center md:mx-auto md:max-w-same">
+        <div className="relative flex w-full md:flex-wrap md:flex-row md:items-center md:mx-auto md:max-w-same">
           <div
             className={`${
               openNav ? "pb-4 border-b-2 border-blue-700" : ""
-            } flex justify-between md:justify-start w-full md:w-1/3 md:pb-0 px-3`}
+            } flex justify-between items-center md:justify-start w-full md:w-1/3 md:pb-0 px-3`}
           >
-            <Link to={"/"}>
-              <span className="font-sen self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="font-sen text-3xl font-semibold whitespace-nowrap dark:text-white">
+              <Link to={"/"}>
                 SHOP<span className="text-blue-700">SPOT</span>
-              </span>
-            </Link>
+              </Link>
+            </span>
 
-            <div className="flex justify-center items-center">
-              <div className="mr-4 ml-8 flex justify-center items-center">
+            <div className="order-first md:order-last flex justify-center items-center">
+              <div className="mr-4 ml-8 md:flex justify-center items-center hidden">
                 {showSearch && (
                   <div className="mr-2">
                     <Search />
@@ -136,7 +136,11 @@ function Navbar({ currentPage, pages }) {
             </div>
           </div>
 
-          <div className="md:flex justify-end md:w-1/3 md:order-2 hidden">
+          <div
+            className={`${
+              openNav ? "pb-4 border-b-2 border-blue-700" : ""
+            } flex justify-end items-center w-1/2 md:justify-end md:w-1/3 md:order-2 `}
+          >
             {/* <div className="h-18 w-18">
             </div> */}
             <div className="h-18 w-18">
@@ -144,17 +148,17 @@ function Navbar({ currentPage, pages }) {
                 <AiOutlinePoweroff
                   onClick={() => {
                     <LogoutModal />;
-                    console.log("ji");
+                    // console.log("ji");
                     // dispatch(FirebaseAuthService.signOutService());
                     // navigate("/login");
                     // window.location.reload(false);
                   }}
-                  className="h-7 w-7 text-gray-400"
+                  className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
                 />
               ) : (
                 <MdLogin
                   onClick={() => navigate("/login")}
-                  className="h-7 w-7 text-gray-400"
+                  className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
                 />
               )}
             </div>
@@ -164,13 +168,13 @@ function Navbar({ currentPage, pages }) {
                 <span
                   className={
                     cartProducts.length !== 0
-                      ? "-mt-3 -right-1 absolute text-xs font-bold px-2 py-1 bg-red-600 text-white rounded-full"
+                      ? "-mt-3 -right-1 absolute text-xs font-bold md:px-2 px-1.5 py-0.5 md:py-1 bg-red-600 text-white rounded-full"
                       : ""
                   }
                 >
                   {cartProducts.length !== 0 && `${cartProducts.length}`}
                 </span>
-                <HiOutlineShoppingBag className="h-7 w-7 text-gray-400" />
+                <HiOutlineShoppingBag className="md:h-7 md:w-7 w-6 h-6 text-gray-400" />
               </div>
             </Link>
 
@@ -179,10 +183,10 @@ function Navbar({ currentPage, pages }) {
                 {user.imageUrl ? (
                   <img
                     src={user.imageUrl}
-                    className="h-7 w-7 rounded-full object-cover"
+                    className="md:h-7 md:w-7 w-6 h-6 rounded-full object-cover"
                   />
                 ) : (
-                  <CgProfile className="h-8 w-8 text-gray-400" />
+                  <CgProfile className="md:h-7 md:w-7 w-6 h-6 text-gray-400" />
                 )}
               </div>
             </Link>
@@ -223,30 +227,9 @@ function Navbar({ currentPage, pages }) {
             </ul>
           </div>
         </div>
-        {/* </div> */}
       </nav>
     </div>
   );
 }
 
 export default Navbar;
-
-{
-  /* <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500 md:p-0 dark:text-white"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  About
-                </a>
-              </li> */
-}

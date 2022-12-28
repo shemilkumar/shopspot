@@ -69,7 +69,7 @@ function SignUpPage({ signUp }) {
 
               <button
                 type="submit"
-                className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-700 focus:outline-none my-1"
+                className="w-full text-center py-3 rounded bg-blue-500 text-white hover:bg-blue-700 focus:outline-none my-1"
                 onClick={(e) => signUpHandle(e)}
               >
                 Create Account

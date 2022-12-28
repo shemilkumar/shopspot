@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import FirebaseDbService from "../Firebase/FirebaseDbService";
 import useAuth from "../Firebase/useAuth";
+import FirebaseDbService from "../Firebase/FirebaseDbService";
+import { Link, useNavigate } from "react-router-dom";
 import { priceConvert } from "../Helper/priceConvert";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -22,7 +22,6 @@ function Card({ product, alertShow }) {
               className="m-auto md:h-60 h-40 p-1 rounded-t-lg object-cover"
               src={product.images[0]}
               alt="product image"
-              // placeholderSrc={placeholderImage}
             />
           </div>
         </Link>
@@ -74,7 +73,6 @@ function Card({ product, alertShow }) {
                 {priceConvert(product.price)}
               </span>
             </Link>
-            {/* <div> */}
             <button
               onClick={() => {
                 FirebaseDbService.storeCartProducts(product, uid, navigate);
@@ -84,8 +82,6 @@ function Card({ product, alertShow }) {
             >
               Add to cart
             </button>
-            {/* <ToastContainer /> */}
-            {/* </div> */}
           </div>
         </div>
       </div>

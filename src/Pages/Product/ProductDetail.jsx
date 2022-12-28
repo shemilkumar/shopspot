@@ -132,7 +132,7 @@ function ProductDetail({ product, navigate, uid }) {
               </div>
             </div>
 
-            <div className="flex mt-10 text-lg font-lg font-sen">
+            <div className="flex my-10 text-lg font-lg font-sen">
               <button
                 type="button"
                 className="ml-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

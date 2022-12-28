@@ -93,7 +93,7 @@ function Profile({ user, sellProductByUser, userUid }) {
                 </li>
               </ul>
 
-              <div className="grid grid-cols-3 gap-0.5 md:flex md:flex-wrap  -mx-px md:-mx-3">
+              <div className="grid grid-cols-3 gap-0.5 md:gap-0 md:w-10/12 md:m-auto">
                 {sellProductByUser.length === 0 ? (
                   <h1 className="m-auto text-4xl mt-8">No products</h1>
                 ) : (
@@ -101,17 +101,15 @@ function Profile({ user, sellProductByUser, userUid }) {
                     return (
                       <div
                         key={index}
-                        className="md:w-1/3 md:h-full p-px md:px-3"
+                        className="flex items-center justify-center md:h-full p-px md:px-3"
                       >
-                        <a>
-                          <article className="m-auto md:h-64 md:w-56 h-32 bg-gray-100 text-white relative pb-full md:mb-6">
-                            <img
-                              className="w-full h-full absolute left-0 top-0 object-cover"
-                              src={product.thumbnail}
-                              alt="image"
-                            />
-                          </article>
-                        </a>
+                        <article className="m-auto md:border-4 md:h-64 md:w-56 h-32 bg-gray-100 text-white relative pb-full md:mb-6">
+                          <img
+                            className="w-full h-full absolute left-0 top-0 object-cover"
+                            src={product.thumbnail}
+                            alt="image"
+                          />
+                        </article>
                       </div>
                     );
                   })

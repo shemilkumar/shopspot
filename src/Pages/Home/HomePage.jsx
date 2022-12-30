@@ -1,5 +1,5 @@
 // import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Banner from "../../Components/Banner";
 import Features from "../../Components/Features";
 import Footer from "../../Components/Footer";

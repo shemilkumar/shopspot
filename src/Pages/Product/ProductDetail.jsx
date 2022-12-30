@@ -1,3 +1,4 @@
+import React from "react";
 import Navbar from "../../Components/Navbar";
 import ImageGrid from "../../Components/ImageGrid";
 import Footer from "../../Components/Footer";

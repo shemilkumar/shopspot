@@ -117,11 +117,8 @@ function Profile({ user, sellProductByUser, userUid }) {
                   // </div>
                   sellProductByUser.map((product, index) => {
                     return (
-                      <Link to={`/product/${product.id}`}>
-                        <div
-                          key={index}
-                          className="flex items-center justify-center md:h-full p-px md:px-3"
-                        >
+                      <Link to={`/product/${product.id}`} key={index}>
+                        <div className="flex items-center justify-center md:h-full p-px md:px-3">
                           <article className="m-auto border-2 md:border-4 md:h-64 md:w-56 h-32 w-full bg-gray-100 text-white relative pb-full md:mb-6">
                             <img
                               className="w-full h-full absolute left-0 top-0 object-cover

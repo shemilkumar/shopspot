@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { readymadeCardProducts } from "../Constants/constants";
 import Card from "../Components/Card";
 import Countdown from "../Components/Countdown";
-import Alert from "../Helper/Alert";
+// import Alert from "../Helper/Alert";
 
 function Hero({ alertShow }) {
   return (

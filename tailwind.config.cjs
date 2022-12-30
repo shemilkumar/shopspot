@@ -3,7 +3,7 @@ module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,jsx}",
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+    // "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   mode: "jit",
   theme: {
@@ -37,7 +37,7 @@ module.exports = {
       xl: "1700px",
     },
   },
-  plugins: [require("flowbite/plugin")],
+  // plugins: [require("flowbite/plugin")],
 };
 
 // #2fbba4

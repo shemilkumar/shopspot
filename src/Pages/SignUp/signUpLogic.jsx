@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import SignUpPage from "./signUp";
 import firebaseAuthService from "../../Firebase/FirebaseAuthService";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import SignUpPage from "./signUp";
 
 function SignUpLogic() {
   const userDetails = useSelector((state) => state.user);
@@ -11,7 +12,7 @@ function SignUpLogic() {
 
   const signUp = (signUpEmail, signUpPassword, confirmPassword, name) => {
     if (signUpPassword !== confirmPassword) {
-      console.error("password not matched");
+      alert("password not matched");
       return;
     }
     dispatch(

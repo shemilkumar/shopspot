@@ -1,14 +1,13 @@
 import Navbar from "../../Components/Navbar";
 import ImageGrid from "../../Components/ImageGrid";
-import { TbTruckDelivery, TbReplace, TbShieldCheck } from "react-icons/tb";
-import { GiTakeMyMoney } from "react-icons/gi";
 import Footer from "../../Components/Footer";
-// import StoreCartProducts from "../../Helper/StoreCartProducts";
 import FirebaseDbService from "../../Firebase/FirebaseDbService";
 import { priceConvert } from "../../Helper/priceConvert";
 
+import { TbTruckDelivery, TbReplace, TbShieldCheck } from "react-icons/tb";
+import { GiTakeMyMoney } from "react-icons/gi";
+
 function ProductDetail({ product, navigate, uid }) {
-  // console.log("here", product);
   let star = product.rating ? Math.floor(product.rating / 1) : null;
   if (star === 0) star = 1;
 
@@ -89,7 +88,7 @@ function ProductDetail({ product, navigate, uid }) {
               </strike>
             </p>
 
-            <p className="m-4 w-2/3">{product.description}</p>
+            <p className="m-4 w-10/12 md:w-2/3">{product.description}</p>
 
             <div className="text-4xl text-center border-b-2 border-gray-200 p-4 grid grid-cols-4 w-10/12 items-center">
               <div className="flex flex-col items-center">
@@ -173,53 +172,3 @@ function ProductDetail({ product, navigate, uid }) {
 }
 
 export default ProductDetail;
-
-{
-  /* <div className='flex h-screen'>
-        <a className="m-auto flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img className="object-cover rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={product.images[0]} alt="" />
-            <div className="flex flex-col justify-between p-4 leading-normal">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.title}</h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.description}</p>
-            </div>
-        </a>
-    </div> */
-}
-
-{
-  /* <div className="w-5/12">
-<div className="p-2 flex flex-start">
-  <p className="font-semibold w-1/2">Brand</p>
-  <p className="w-1/2">Apple</p>
-</div>
-<div className="p-2 flex justify-around">
-  <p className="font-semibold">Category</p>
-  <p>Laptop</p>
-</div>
-<div className="p-2 flex justify-around">
-  <p className="font-semibold">stock</p>
-  <p>Available</p>
-</div>
-</div>; */
-}
-
-// {/* <div className="m-auto grid grid-row-4 h-full w-full items-center">
-//   {/* <div className="flex flex-col justify-center items-center h-full w-full"> */}
-//   <div className="h-1/4">
-//     <img src={product.images[0]} alt="" />
-//   </div>
-
-//   <div className="">
-//     <img src={product.images[1]} alt="" />
-//   </div>
-//   <div className="">
-//     <img src={product.images[2]} alt="" />
-//   </div>
-//   <div className="">
-//     <img src={product.images[3]} alt="" />
-//   </div>
-//   <div className="">
-//     <img src={product.images[0]} alt="" />
-//   </div>
-//   {/* </div> */}
-// </div>; */}

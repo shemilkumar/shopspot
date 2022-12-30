@@ -100,15 +100,25 @@ class FirebaseDbService {
   setUserData(uid, data) {
     const userDocRef = doc(db, "users", `${uid}`);
 
-    setDoc(userDocRef, {
-      ...data,
-      name: data.firstName + " " + data.lastName,
-      uid,
-    })
-      .then(() => {
-        console.log("User details added to the Database");
-      })
-      .catch((error) => console.log(error.message));
+    data.firstName
+      ? setDoc(userDocRef, {
+          ...data,
+          name: data.firstName + " " + data.lastName,
+          uid,
+        })
+          .then(() => {
+            console.log("User details added to the Database");
+          })
+          .catch((error) => console.log(error.message))
+      : setDoc(userDocRef, {
+          ...data,
+          name: data.name,
+          uid,
+        })
+          .then(() => {
+            console.log("User details added to the Database");
+          })
+          .catch((error) => console.log(error.message));
   }
 
   getUserData(uid = null, anotherUser = false) {
@@ -137,7 +147,7 @@ class FirebaseDbService {
                 type: ActionTypes.SET_USER,
                 payload: docSnap.data(),
               });
-        }
+        } else console.log("something");
       };
     } catch (error) {
       console.log(error);

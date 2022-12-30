@@ -10,6 +10,7 @@ import SetProfileLogic from "./Pages/SetProfile/setProfileLogic";
 import SellPageLogic from "./Pages/SellPage/sellPageLogic";
 import HomePageLogic from "./Pages/Home/HomePageLogic";
 import PageNotFoundError from "./Errors/PageNotFoundError";
+import NetworkError from "./Errors/NetworkError";
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
 
         <Route path="/signup" element={<SignUpLogic />} />
         <Route path="/login" element={<LoginLogic />} />
+
+        <Route path="/networkError" element={<NetworkError />} />
 
         <Route path="*" element={<PageNotFoundError />} />
       </Routes>

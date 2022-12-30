@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import useAuth from "../../Firebase/useAuth";
 import firebaseDbService from "../../Firebase/FirebaseDbService";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import Spinner from "../Spinner";
 import Cart from "./cart";
-import { useNavigate } from "react-router-dom";
 
 function cartLogic() {
   const dispatch = useDispatch();
@@ -23,10 +24,7 @@ function cartLogic() {
   // console.log(cartProducts);
 
   return (
-    <>
-      {cartProducts ? <Cart cartProducts={cartProducts} /> : <Spinner />}
-      {/* { cartProducts.length === 0 ? <h1 className='m-auto text-4xl'>No Cart Products</h1> : '' } */}
-    </>
+    <>{cartProducts ? <Cart cartProducts={cartProducts} /> : <Spinner />}</>
   );
 }
 

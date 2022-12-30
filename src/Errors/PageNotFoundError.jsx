@@ -3,6 +3,7 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import notFoundImage from "../assets/Images/404-computer.svg";
 import { Link } from "react-router-dom";
+
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 

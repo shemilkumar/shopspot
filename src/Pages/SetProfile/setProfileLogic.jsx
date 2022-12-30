@@ -1,8 +1,9 @@
 import React from "react";
-import SetProfile from "./setProfile";
-import firebaseDbService from "../../Firebase/FirebaseDbService";
 import useAuth from "../../Firebase/useAuth";
+import firebaseDbService from "../../Firebase/FirebaseDbService";
 import { useNavigate } from "react-router-dom";
+
+import SetProfile from "./setProfile";
 
 function SetProfileLogic() {
   const uid = useAuth();

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
+import useAuth from "../../Firebase/useAuth";
+import firebaseDbService from "../../Firebase/FirebaseDbService";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import firebaseDbService from "../../Firebase/FirebaseDbService";
+
 import Spinner from "../Spinner";
 import Profile from "./profile";
-import useAuth from "../../Firebase/useAuth";
 
 function ProfileLogic() {
   const uid = useAuth();
@@ -33,8 +34,6 @@ function ProfileLogic() {
 
     uid === null && navigate("/login");
   }, [userUid, uid]);
-
-  // console.log(sellProductByUser);
 
   return (
     <>

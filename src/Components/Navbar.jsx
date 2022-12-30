@@ -1,26 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import useAuth from "../Firebase/useAuth";
+import FirebaseDbService from "../Firebase/FirebaseDbService";
+import FirebaseAuthService from "../Firebase/FirebaseAuthService";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Search from "./Search";
+
+// React Icons Import
 import { CgProfile } from "react-icons/cg";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { MdLogin } from "react-icons/md";
 import { AiOutlinePoweroff } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { TfiMenu } from "react-icons/tfi";
-// import { IoClose } from "react-icons/io";
 import { VscChromeClose } from "react-icons/vsc";
 
-import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../Firebase/useAuth";
-import FirebaseAuthService from "../Firebase/FirebaseAuthService";
-import { useDispatch, useSelector } from "react-redux";
-import FirebaseDbService from "../Firebase/FirebaseDbService";
-import Search from "./Search";
-import LogoutModal from "../Helper/LogoutModal";
-
 function Navbar({ currentPage, pages }) {
-  // const [uid, setUid] = useState("");
-  // setUid(useAuth());
-  // debugger;
   let uid = useAuth();
 
   const navigate = useNavigate();
@@ -33,6 +29,9 @@ function Navbar({ currentPage, pages }) {
   const [scroll, setScroll] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [openNav, setOpenNav] = useState(false);
+
+  const [online, setOnline] = useState(navigator.onLine);
+  // console.log(online);
 
   const [show, setShow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -52,9 +51,12 @@ function Navbar({ currentPage, pages }) {
   };
 
   useEffect(() => {
+    // !online && navigate("/networkError");
+
+    // console.log(online);
+
     uid && dispatch(FirebaseDbService.getUserData(uid));
     uid && dispatch(FirebaseDbService.getCartProducts(uid));
-    // console.log(uid);
 
     // if (window.innerWidth < 1060) {
     //   console.log(window.innerWidth);
@@ -73,11 +75,7 @@ function Navbar({ currentPage, pages }) {
         window.removeEventListener("scroll", bgColorChange);
       };
     }
-  }, [uid, lastScrollY]);
-
-  // console.log("user =>", user);
-  // console.log("uid =>", uid);
-  // console.log(uid, user);
+  }, [uid, lastScrollY, online]);
 
   return (
     <div
@@ -90,14 +88,6 @@ function Navbar({ currentPage, pages }) {
           scroll ? "bg-gray-100" : "md:bg-transparent bg-gray-200"
         } fixed md:flex flex-col w-full top-0 z-20 border-gray-200 md:px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 transition-all ease-in-out duration-500`}
       >
-        {/* <div className="mx-auto my-1"> */}
-        {/* <Link to={"/"}>
-            <span className="font-sen self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
-              SHOP<span className="text-blue-700">SPOT</span>
-            </span>
-          </Link> */}
-        {/* </div> */}
-
         <div className="relative flex w-full md:flex-wrap md:flex-row md:items-center md:mx-auto md:max-w-same">
           <div
             className={`${
@@ -147,11 +137,9 @@ function Navbar({ currentPage, pages }) {
               {uid ? (
                 <AiOutlinePoweroff
                   onClick={() => {
-                    <LogoutModal />;
-                    // console.log("ji");
-                    // dispatch(FirebaseAuthService.signOutService());
-                    // navigate("/login");
-                    // window.location.reload(false);
+                    dispatch(FirebaseAuthService.signOutService());
+                    navigate("/login");
+                    window.location.reload(false);
                   }}
                   className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
                 />

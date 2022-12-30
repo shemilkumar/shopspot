@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { categories, fashionCategories } from "../../Constants/constants";
+
 import Footer from "../../Components/Footer";
 import ListView from "../../Components/ListView";
 import Navbar from "../../Components/Navbar";
 import Card from "../../Components/Card";
-import { categories, fashionCategories } from "../../Constants/constants";
+import Spinner from "../Spinner";
+import Alert from "../../Helper/Alert";
+import noData from "../../assets/Images/undraw_No_data_re_kwbl.png";
+
 import { FaListUl } from "react-icons/fa";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { TbArrowsLeftRight } from "react-icons/tb";
-
-import noData from "../../assets/Images/undraw_No_data_re_kwbl.png";
-import Spinner from "../Spinner";
-import Alert from "../../Helper/Alert";
 import { VscChromeClose } from "react-icons/vsc";
 
 function Home({ wholeProducts, filterCategory }) {
-  // const cartHandle = (product) => storeCartProduct(product);
-
   let fullProducts = wholeProducts.filter(
     (product) => product.id !== 29 && product.id !== 70 && product.id !== 45
   );
@@ -382,7 +381,11 @@ function Home({ wholeProducts, filterCategory }) {
                   );
                 })}
             </div>
-            <div className="flex justify-end">
+            <div
+              className={`${
+                allProducts.length < 5 ? "hidden" : ""
+              } flex justify-end`}
+            >
               <a
                 href="#"
                 className="bg-blue-700 text-white p-2 rounded-full m-2 text-xl font-semibold"
@@ -399,97 +402,3 @@ function Home({ wholeProducts, filterCategory }) {
 }
 
 export default Home;
-
-{
-  /* <div className="grid grid-cols-3 gap-3 content-center">
-      {fullProducts.map((product, index) => {
-        return (
-          <div
-            key={index}
-            className="relative max-w-sm rounded overflow-hidden shadow-lg"
-          >
-            <Link
-              to={
-                product.id
-                  ? `/product/${product.id}`
-                  : `/product/${index + 1000}`
-              }
-            >
-              <img
-                className="w-full"
-                src={product.thumbnail ? product.thumbnail : product.imageUrl}
-                alt={product.title}
-              />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{product.title}</div>
-                <p className="text-gray-700 text-base">{product.description}</p>
-              </div>
-              <div className="px-6 pt-4 pb-2 mb-4">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  {product.category}
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  {product.brand}
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  {product.price}
-                </span>
-              </div>
-            </Link>
-
-            <button
-              onClick={() => cartHandle(product)}
-              className="hover:bg-blue-700 absolute inset-x-0 bottom-0 mt-3 uppercase text-white bg-red-600 py-3 px-8 rounded-md font-poppins font-semibold text-lg"
-            >
-              Cart
-            </button>
-          </div>
-        );
-      })}
-    </div><div className="grid grid-cols-3 gap-3 content-center">
-      {fullProducts.map((product, index) => {
-        return (
-          <div
-            key={index}
-            className="relative max-w-sm rounded overflow-hidden shadow-lg"
-          >
-            <Link
-              to={
-                product.id
-                  ? `/product/${product.id}`
-                  : `/product/${index + 1000}`
-              }
-            >
-              <img
-                className="w-full"
-                src={product.thumbnail ? product.thumbnail : product.imageUrl}
-                alt={product.title}
-              />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{product.title}</div>
-                <p className="text-gray-700 text-base">{product.description}</p>
-              </div>
-              <div className="px-6 pt-4 pb-2 mb-4">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  {product.category}
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  {product.brand}
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  {product.price}
-                </span>
-              </div>
-            </Link>
-
-            <button
-              onClick={() => cartHandle(product)}
-              className="hover:bg-blue-700 absolute inset-x-0 bottom-0 mt-3 uppercase text-white bg-red-600 py-3 px-8 rounded-md font-poppins font-semibold text-lg"
-            >
-              Cart
-            </button>
-          </div>
-        );
-      })}
-    </div> */
-}

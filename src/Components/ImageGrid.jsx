@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
@@ -20,7 +21,7 @@ function ImageGrid({ images }) {
           );
         })}
       </div>
-      <div className="row-start-1 h-[500px] bg-white flex items-center">
+      <div className="row-start-1 h-[500px] bg-white flex items-center justify-center">
         <LazyLoadImage effect="blur" src={currentImage} alt="" />
       </div>{" "}
     </div>

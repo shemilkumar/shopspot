@@ -1,11 +1,9 @@
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { auth, db } from "./firebase-config";
-import { setDoc, doc } from "firebase/firestore";
+import { auth } from "./firebase-config";
 import { ActionTypes } from "../Redux/constants/actionTypes";
 import firebaseDbService from "./FirebaseDbService";
 
@@ -32,6 +30,8 @@ class FirebaseAuthService {
             //   password,
             // });
 
+            console.log(name);
+
             firebaseDbService.setUserData(credentials.user.uid, {
               name,
               email,
@@ -54,7 +54,7 @@ class FirebaseAuthService {
             navigate("/");
             console.log("Data successfully saved in Storage");
           })
-          .catch((err) => console.log(err.message));
+          .catch((err) => alert(err.message));
       };
     } catch (error) {
       console.log(error.message);
@@ -75,10 +75,10 @@ class FirebaseAuthService {
 
             navigate("/");
           })
-          .catch((error) => console.log(error.message));
+          .catch((error) => alert(error.message));
       };
     } catch (error) {
-      console.log(error.message);
+      console.log("k");
     }
   }
 

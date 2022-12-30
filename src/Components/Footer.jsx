@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -6,7 +7,7 @@ function Footer() {
       <footer className="p-4 max-w-same m-auto sm:p-6 dark:bg-gray-900">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="https://flowbite.com/" className="flex items-center">
+            <a href="#" className="flex items-center">
               <img
                 src="https://flowbite.com/docs/images/logo.svg"
                 className="mr-3 h-8"
@@ -29,12 +30,9 @@ function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://tailwindcss.com/"
-                    className="hover:underline"
-                  >
+                  <Link to={"/products"} className="hover:underline">
                     Products
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

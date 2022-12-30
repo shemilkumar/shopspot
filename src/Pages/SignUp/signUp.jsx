@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import Footer from "../../Components/Footer";
 import Navbar from "../../Components/Navbar";
 
@@ -11,12 +12,19 @@ function SignUpPage({ signUp }) {
 
   const signUpHandle = (e) => {
     e.preventDefault();
+
+    if (!name) alert("Name required");
+    if (!signUpEmail) alert("Email required");
+    if (!signUpPassword) alert("Password required");
+
+    if (!name || !signUpEmail || !signUpPassword) return;
+
+    signUp(signUpEmail, signUpPassword, confirmPassword, name);
+
     setName("");
     setSignUpEmail("");
     setSignUpPassword("");
     setConfirmPassword("");
-
-    signUp(signUpEmail, signUpPassword, confirmPassword, name);
   };
 
   return (
@@ -34,11 +42,14 @@ function SignUpPage({ signUp }) {
 
               <input
                 type="text"
-                className="block appearance-none border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4"
+                className={`${
+                  name.length > 0 ? "border-green-500" : ""
+                } block appearance-none border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4`}
                 name="fullname"
                 placeholder="Full Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
 
               <input
@@ -48,6 +59,7 @@ function SignUpPage({ signUp }) {
                 placeholder="Email"
                 value={signUpEmail}
                 onChange={(e) => setSignUpEmail(e.target.value)}
+                required
               />
 
               <input
@@ -57,6 +69,7 @@ function SignUpPage({ signUp }) {
                 placeholder="Password"
                 value={signUpPassword}
                 onChange={(e) => setSignUpPassword(e.target.value)}
+                required
               />
               <input
                 type="password"
@@ -65,6 +78,7 @@ function SignUpPage({ signUp }) {
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                required
               />
 
               <button

@@ -48,13 +48,27 @@ function Profile({ user, sellProductByUser, userUid }) {
                     posts
                   </li>
                 </ul>
-
                 <div className="hidden md:block">
-                  {/* <p>{user.postal - code}</p> */}
-                  <p>{user.city}</p>
-                  <p>
+                  <p
+                    className={`${
+                      user.city ? "" : "hidden"
+                    }text-sm text-gray-500 font-md`}
+                  >
+                    {user.city}
+                  </p>
+                  <p
+                    className={`${
+                      user.region ? "" : "hidden"
+                    }text-sm text-gray-500 font-md`}
+                  >
                     {user.region}
-                    {/* Thrissur */}
+                  </p>
+                  <p
+                    className={`${
+                      user.country ? "" : "hidden"
+                    }text-sm text-gray-500 font-md`}
+                  >
+                    {user.country}
                   </p>
                 </div>
 
@@ -95,22 +109,29 @@ function Profile({ user, sellProductByUser, userUid }) {
 
               <div className="grid grid-cols-3 gap-0.5 md:gap-0 md:w-10/12 md:m-auto">
                 {sellProductByUser.length === 0 ? (
-                  <h1 className="m-auto text-4xl mt-8">No products</h1>
+                  // <div className="flex justify-center w-full">
+                  <h1 className="col-span-3 m-auto md:text-4xl text-xl mt-8">
+                    No products
+                  </h1>
                 ) : (
+                  // </div>
                   sellProductByUser.map((product, index) => {
                     return (
-                      <div
-                        key={index}
-                        className="flex items-center justify-center md:h-full p-px md:px-3"
-                      >
-                        <article className="m-auto md:border-4 md:h-64 md:w-56 h-32 bg-gray-100 text-white relative pb-full md:mb-6">
-                          <img
-                            className="w-full h-full absolute left-0 top-0 object-cover"
-                            src={product.thumbnail}
-                            alt="image"
-                          />
-                        </article>
-                      </div>
+                      <Link to={`/product/${product.id}`}>
+                        <div
+                          key={index}
+                          className="flex items-center justify-center md:h-full p-px md:px-3"
+                        >
+                          <article className="m-auto border-2 md:border-4 md:h-64 md:w-56 h-32 w-full bg-gray-100 text-white relative pb-full md:mb-6">
+                            <img
+                              className="w-full h-full absolute left-0 top-0 object-cover
+                              "
+                              src={product.thumbnail}
+                              alt="image"
+                            />
+                          </article>
+                        </div>
+                      </Link>
                     );
                   })
                 )}
@@ -125,41 +146,3 @@ function Profile({ user, sellProductByUser, userUid }) {
 }
 
 export default Profile;
-
-{
-  /* <div className="w-1/3 p-px md:px-3">
-                <a href="#">
-                  <article className="post h-80 w-72 bg-gray-100 text-white relative pb-full md:mb-6">
-                    <img
-                      className="w-full h-full absolute left-0 top-0 object-cover"
-                      src="https://images.unsplash.com/photo-1498409570040-05bf6d3dd5b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                      alt="image"
-                    />
-                  </article>
-                </a>
-              </div>
-
-              <div className="w-1/3 p-px md:px-3">
-                <a href="#">
-                  <article className="post h-80 w-72 bg-gray-100 text-white relative pb-full  md:mb-6">
-                    <img
-                      className="w-full h-full absolute left-0 top-0 object-cover"
-                      src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                      alt="image"
-                    />
-                  </article>
-                </a>
-              </div>
-
-              <div className="w-1/3 p-px md:px-3">
-                <a href="#">
-                  <article className="post h-80 w-72 bg-gray-100 text-white relative pb-full md:mb-6">
-                    <img
-                      className="w-full h-full absolute left-0 top-0 object-cover"
-                      src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                      alt="image"
-                    />
-                  </article>
-                </a>
-              </div> */
-}

@@ -2,24 +2,25 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { priceConvert } from "../../Helper/priceConvert";
+
 import CartList from "../../Components/CartList";
 import Footer from "../../Components/Footer";
 import Navbar from "../../Components/Navbar";
 import useAuth from "../../Firebase/useAuth";
-import { priceConvert } from "../../Helper/priceConvert";
+import cartEmptyImage from "../../assets/Images/empty_cart.png";
+import Spinner from "../Spinner";
 
 function Cart({ cartProducts }) {
   const uid = useAuth();
   const navigate = useNavigate();
-
-  // const [total, setTotal] = useState(0);
 
   let totalPrice = 0,
     mrpTotalPrice = 0;
   const [timeout, setTimeout] = useState(false);
   setInterval(() => {
     setTimeout(true);
-  }, 4000);
+  }, 3500);
 
   useEffect(() => {
     // console.log(cartProducts);
@@ -41,9 +42,24 @@ function Cart({ cartProducts }) {
 
           {cartProducts.length === 0 ? (
             <div className="min-h-screen flex flex-col items-center w-full text-2xl text-gray-500">
-              {timeout ? "Cart is empty" : "Loading..."}
+              {timeout ? (
+                <div>
+                  <p className="text-center mb-4">Cart is Empty</p>
+                  <img
+                    src={cartEmptyImage}
+                    alt="empty"
+                    className="w-full h-52 md:h-84"
+                  />
+                </div>
+              ) : (
+                <Spinner />
+              )}
             </div>
           ) : (
+            // <div className="min-h-screen flex flex-col items-center w-full text-2xl text-gray-500">
+            //   {timeout ? "Cart is empty" : "Loading..."}
+
+            // </div>
             <div className="min-h-screen">
               {uid && (
                 <div className="flex flex-col justify-center w-full">
@@ -55,14 +71,7 @@ function Cart({ cartProducts }) {
                       product.subTotal *
                         (100 / (100 - product.discountPercentage))
                     );
-                    return (
-                      <CartList
-                        key={i}
-                        cartProduct={product}
-                        uid={uid}
-                        navigate={navigate}
-                      />
-                    );
+                    return <CartList key={i} cartProduct={product} uid={uid} />;
                   })}
                 </div>
               )}
@@ -111,51 +120,3 @@ function Cart({ cartProducts }) {
 }
 
 export default Cart;
-
-{
-  /* <div key={cartProduct.id} className="max-w-screen-lg m-auto">
-            <div className="m-8 p-8 border-2 md:flex items-center py-8 border-t border-gray-200">
-              <div className="w-1/4">
-                <img
-                  src={cartProduct.images[0]}
-                  alt={cartProduct.title}
-                  className="w-full h-full object-center object-cover"
-                />
-              </div>
-              <div className="text-lg md:pl-3 md:w-3/4 w-full">
-                <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">
-                  {cartProduct.brand}
-                </p>
-
-                <div className="flex items-center justify-between w-full pt-1">
-                  <p className="text-base font-black leading-none text-gray-800">
-                    {cartProduct.title}
-                  </p>
-                </div>
-
-                <p className="text-xs leading-3 text-gray-600 pt-2">
-                  {cartProduct.rating}
-                </p>
-                <p className="text-xs leading-3 text-gray-600 py-4">
-                  {cartProduct.category}
-                </p>
-                <p className="w-96 text-xs leading-3 text-gray-600">Quantity</p>
-                <div className="flex items-center justify-between pt-5 pr-6">
-                  <div className="flex itemms-center">
-                    <p className="text-xs leading-3 underline text-gray-800 cursor-pointer">
-                      Add to favorites
-                    </p>
-                    <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">
-                      Remove
-                    </p>
-                  </div>
-                  <p className="text-base font-black leading-none text-gray-800">
-                    {cartProduct.price}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      }) */
-}

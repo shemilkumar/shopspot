@@ -1,11 +1,9 @@
 import {
   getDownloadURL,
   getStorage,
-  listAll,
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
-import Alert from "../Helper/Alert";
 import { ActionTypes } from "../Redux/constants/actionTypes";
 
 class FirebaseStorage {
@@ -94,7 +92,6 @@ class FirebaseStorage {
             });
 
             alert("Images uploaded successfully");
-            // <Alert />;
           })
       );
     };

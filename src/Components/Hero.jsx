@@ -1,11 +1,11 @@
-import Card from "../Components/Card";
 import React from "react";
-// import Clock from "./Clock";
-import Countdown from "../Components/Countdown";
-import { readymadeCardProducts } from "../Constants/constants";
 import { Link } from "react-router-dom";
+import { readymadeCardProducts } from "../Constants/constants";
+import Card from "../Components/Card";
+import Countdown from "../Components/Countdown";
+import Alert from "../Helper/Alert";
 
-function Hero() {
+function Hero({ alertShow }) {
   return (
     <div>
       <div className="w-full pt-20 bg-gray-100 border-b-2 md:pb-20 pb-10">
@@ -22,7 +22,7 @@ function Hero() {
             <div className="flex justify-center mt-4">
               <div className="grid md:grid-cols-3 md:gap-x-24 sm:gap-x-16 md:gap-y-10 xs:grid-cols-2 grid-cols-1">
                 {readymadeCardProducts.map((product, key) => (
-                  <Card key={key} product={product} />
+                  <Card key={key} product={product} alertShow={alertShow} />
                 ))}
               </div>
             </div>

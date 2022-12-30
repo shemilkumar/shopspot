@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { NavLink, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import FirebaseDbService from "../Firebase/FirebaseDbService";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { priceConvert } from "../Helper/priceConvert";
 
-function CartList({ cartProduct, uid, navigate }) {
+function CartList({ cartProduct, uid }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const [subTotal, setSubTotal] = useState(cartProduct.subTotal);

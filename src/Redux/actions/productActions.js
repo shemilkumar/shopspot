@@ -18,10 +18,3 @@ export const removeSelectedAction = () => {
     payload: {},
   };
 };
-
-// export const addCartProduct = (product) => {
-//   return {
-//     type: "ADD_CART_PRODUCT",
-//     payload: product,
-//   };
-// };

@@ -1,8 +1,8 @@
 import React from "react";
+import image from "../assets/Images/cosmetics_features.png";
+import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Link } from "react-router-dom";
-import image from "../assets/Images/cosmetics_features.png";
 
 function Features() {
   return (

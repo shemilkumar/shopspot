@@ -12,7 +12,7 @@ function Profile({ user, sellProductByUser, userUid }) {
       />
       <div>
         <main className="min-h-screen mt-28 bg-gray-100 bg-opacity-25 dark:bg-gray-900 dark:text-teal-50">
-          <div className="mb-8">
+          <div className="md:w-8/12 md:mx-auto mb-8">
             <header className="flex md:flex-row flex-wrap md:items-center p-4 md:py-8">
               <div className="md:w-3/12 md:ml-16">
                 <img

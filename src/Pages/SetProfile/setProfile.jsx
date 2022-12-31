@@ -61,7 +61,7 @@ function SetProfile({ setUserDetails }) {
         </h1>
         <div className="md:mt-6 mt-10 bg-gray-100 dark:bg-gray-900">
           <div className="grid gap-6">
-            <div className="md:col-span-1">
+            <div className="md:col-span-1 my-auto md:ml-6">
               <div className="px-4 sm:px-0">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
                   Personal Information
@@ -72,7 +72,7 @@ function SetProfile({ setUserDetails }) {
               </div>
             </div>
 
-            <div className="flex flex-col items-start md:items-end">
+            <div className="flex flex-col items-start md:items-end md:mr-6">
               {/* <label className="block text-sm font-medium text-gray-700">
               Photo
             </label> */}

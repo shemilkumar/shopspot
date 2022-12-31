@@ -234,7 +234,7 @@ function SellPage({ setSellProduct }) {
                   <div className="bg-gray-50 px-4 py-3 text-right sm:px-6 dark:bg-gray-900 ">
                     <button
                       type="submit"
-                      className="md:inline-flex block w-full justify-center rounded-sm border border-transparent bg-blue-700 py-1 px-6 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="md:inline-flex block w-full justify-center rounded-sm border border-transparent py-1 px-6 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-blue-700 bg-gradient-to-tr from-purple-700 to-cyan-400"
                       onClick={handleSubmit}
                       disabled={images.length === 0}
                     >

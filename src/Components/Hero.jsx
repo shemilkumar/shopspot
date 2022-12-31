@@ -14,7 +14,7 @@ function Hero({ alertShow }) {
             <div className="h-1/3 text-center flex flex-col dark:text-teal-50">
               <h1 className="text-3xl md:text-5xl font-bold">Products</h1>
               Offer Closes in
-              <div className="mt-2 text-3xl md:text-4xl font-medium font-poppins border-b-2 border-gray-800 pb-5">
+              <div className="mt-2 text-3xl md:text-4xl font-medium font-poppins border-b-2 dark:border-gray-800 pb-5">
                 <Countdown />
               </div>
             </div>

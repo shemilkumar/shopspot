@@ -11,7 +11,14 @@ function CountrySelector({ handleCountry }) {
     handleCountry(value);
   };
 
-  return <Select options={options} value={value} onChange={changeHandler} />;
+  return (
+    <Select
+      options={options}
+      value={value}
+      onChange={changeHandler}
+      className="dark:bg-gray-700 dark:text-teal-50"
+    />
+  );
 }
 
 export default CountrySelector;

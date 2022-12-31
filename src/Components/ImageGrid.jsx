@@ -21,7 +21,7 @@ function ImageGrid({ images }) {
           );
         })}
       </div>
-      <div className="row-start-1 h-[500px] bg-white flex items-center justify-center">
+      <div className="row-start-1 h-[500px] bg-white dark:bg-gray-900 flex items-center justify-center">
         <LazyLoadImage effect="blur" src={currentImage} alt="" />
       </div>{" "}
     </div>

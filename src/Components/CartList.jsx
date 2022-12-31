@@ -15,7 +15,7 @@ function CartList({ cartProduct, uid }) {
 
   return (
     <>
-      <div className="grid grid-cols-2 place-items-center md:flex justify-between w-[90%] py-8 m-auto border-b-2">
+      <div className="grid grid-cols-2 place-items-center md:flex justify-between w-[90%] py-8 m-auto border-b-2 dark:border-gray-800 dark:text-teal-50">
         <div className="col-span-2 md:w-2/4 flex justify-center items-center">
           <div className="w-1/4 flex flex-col justify-center">
             <Link to={`/product/${cartProduct.id}`}>
@@ -24,41 +24,49 @@ function CartList({ cartProduct, uid }) {
           </div>
           <div className="details w-2/4 ml-8 ">
             <Link to={`/product/${cartProduct.id}`}>
-              <h1 className="text-xl font-semibold mb-2">
+              <h1 className="md:text-xl text-base font-semibold mb-2">
                 {cartProduct.title}
               </h1>
-              <p className="text-md font-semibold text-gray-500 tracking-wider">
+              <p className="md:text-base text-sm font-semibold text-gray-500 tracking-wider dark:text-teal-50">
                 Category:{" "}
-                <span className="text-gray-800 ">{cartProduct.category}</span>
-              </p>
-              <p className="text-md font-semibold text-gray-500 tracking-wider">
-                Brand:{" "}
-                <span className="text-gray-800 ">{cartProduct.brand}</span>
-              </p>
-              <p className="mb-6 text-md font-semibold text-gray-500 tracking-wider">
-                Available Stocks:{" "}
-                <span
-                  className={
-                    cartProduct.stock > 20 ? "text-green-500" : "text-red-500"
-                  }
-                >
-                  {cartProduct.stock}
+                <span className="text-gray-800 dark:text-gray-400">
+                  {cartProduct.category}
                 </span>
               </p>
+              <p className="md:text-base text-sm font-semibold text-gray-500 tracking-wider dark:text-teal-50">
+                Brand:{" "}
+                <span className="text-gray-800 dark:text-gray-400">
+                  {cartProduct.brand}
+                </span>
+              </p>
+              {cartProduct.stock && (
+                <p className="mb-6 md:text-base text-sm font-semibold text-gray-500 tracking-wider dark:text-teal-50">
+                  Available Stocks:{" "}
+                  <span
+                    className={
+                      cartProduct.stock > 20 ? "text-green-500" : "text-red-500"
+                    }
+                  >
+                    {cartProduct.stock}
+                  </span>
+                </p>
+              )}
             </Link>
 
             <Link to={"/cart"}>
-              <span
-                className="mt-4 p-2 rounded-full text-red-600 font-semibold tracking-widest cursor-pointer hover:bg-red-100"
-                onClick={() => {
-                  dispatch(
-                    FirebaseDbService.deleteCartProduct(uid, cartProduct.id)
-                  );
-                  // dispatch(FirebaseDbService.getCartProducts(uid));
-                }}
-              >
-                Remove
-              </span>
+              <div className="md:mt-8 mt-4 mb-4">
+                <span
+                  className="rounded-full text-red-600 font-semibold tracking-widest cursor-pointer hover:bg-red-100"
+                  onClick={() => {
+                    dispatch(
+                      FirebaseDbService.deleteCartProduct(uid, cartProduct.id)
+                    );
+                    // dispatch(FirebaseDbService.getCartProducts(uid));
+                  }}
+                >
+                  Remove
+                </span>
+              </div>
             </Link>
           </div>
         </div>
@@ -67,7 +75,7 @@ function CartList({ cartProduct, uid }) {
             name="quantity"
             id="quantity"
             // value={cartProduct.quantity ? cartProduct.quantity : 1}
-            className="border-none"
+            className="border-none dark:text-teal-50 dark:bg-gray-800"
             onChange={(e) => {
               setQuantity(e.target.value);
               setSubTotal(e.target.value * cartProduct.price);

@@ -11,8 +11,8 @@ function Profile({ user, sellProductByUser, userUid }) {
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
       <div>
-        <main className="min-h-screen mt-28 bg-gray-100 bg-opacity-25">
-          <div className=" lg:w-8/12 lg:mx-auto mb-8">
+        <main className="min-h-screen mt-28 bg-gray-100 bg-opacity-25 dark:bg-gray-900 dark:text-teal-50">
+          <div className="mb-8">
             <header className="flex md:flex-row flex-wrap md:items-center p-4 md:py-8">
               <div className="md:w-3/12 md:ml-16">
                 <img
@@ -29,7 +29,7 @@ function Profile({ user, sellProductByUser, userUid }) {
 
               <div className="w-8/12 md:w-7/12 ml-4">
                 <div className="md:flex md:flex-wrap md:items-center">
-                  <h2 className="text-3xl inline-block font-light md:mr-2 mb-2 sm:mb-0">
+                  <h2 className="text-2xl md:text-3xl inline-block font-light md:mr-2 mb-2 sm:mb-0 dark:text-transparent bg-clip-text bg-gradient-to-tr from-pink-400 to-purple-400">
                     {user.firstName && user.lastName
                       ? user.firstName + " " + user.lastName
                       : user.name}
@@ -84,7 +84,7 @@ function Profile({ user, sellProductByUser, userUid }) {
                   </p>
                   {!userUid && (
                     <Link to={"/set-profile"}>
-                      <button className="mt-4 py-2 px-2 text-xs rounded bg-blue-500 text-white">
+                      <button className="mt-4 py-1 px-1 text-xs rounded bg-blue-500 hover:bg-blue-600 text-white">
                         Edit Profile
                       </button>
                     </Link>

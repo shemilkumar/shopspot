@@ -55,18 +55,18 @@ function SetProfile({ setUserDetails }) {
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
 
-      <div className="max-w-6xl min-h-screen m-auto p-4">
+      <div className="max-w-6xl min-h-screen m-auto p-4 dark:text-teal-50">
         <h1 className="text-3xl font-semibold tracking-wider text-center mt-24">
           Set Your Profile
         </h1>
-        <div className="md:mt-6 mt-10 bg-gray-100">
+        <div className="md:mt-6 mt-10 bg-gray-100 dark:bg-gray-900">
           <div className="grid gap-6">
             <div className="md:col-span-1">
               <div className="px-4 sm:px-0">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
                   Personal Information
                 </h3>
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-sm text-gray-600  dark:text-teal-50">
                   Use a permanent address where you can receive your orders.
                 </p>
               </div>
@@ -97,11 +97,11 @@ function SetProfile({ setUserDetails }) {
 
                 <div className="ml-5">
                   <label className="flex flex-col justify-center items-center cursor-pointer rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                    <span className="leading-normal">Change</span>
+                    <span className="leading-normal ">Change</span>
                     <input
                       type="file"
                       onChange={handleImage}
-                      className="hidden"
+                      className="hidden "
                     />
                   </label>
                 </div>
@@ -110,12 +110,12 @@ function SetProfile({ setUserDetails }) {
             <div className="mt-5 md:col-span-2 md:mt-0">
               <form action="#" method="POST">
                 <div className="overflow-hidden shadow sm:rounded-md">
-                  <div className="bg-white px-4 py-5 sm:p-6">
+                  <div className="bg-white px-4 py-5 sm:p-6 dark:bg-gray-900">
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="first-name"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           First name
                         </label>
@@ -124,7 +124,7 @@ function SetProfile({ setUserDetails }) {
                           name="firstName"
                           id="first-name"
                           autoComplete="given-name"
-                          className="mt-1 block w-full p-3 border rounded-md  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 block w-full p-3 border rounded-md  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
@@ -132,7 +132,7 @@ function SetProfile({ setUserDetails }) {
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="last-name"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           Last name
                         </label>
@@ -141,7 +141,7 @@ function SetProfile({ setUserDetails }) {
                           name="lastName"
                           id="last-name"
                           autoComplete="family-name"
-                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm  dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
@@ -149,7 +149,7 @@ function SetProfile({ setUserDetails }) {
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="email-address"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           Email address
                         </label>
@@ -158,7 +158,7 @@ function SetProfile({ setUserDetails }) {
                           name="emailAddress"
                           id="email-address"
                           autoComplete="email"
-                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
@@ -166,7 +166,7 @@ function SetProfile({ setUserDetails }) {
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="phone-no"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           Contact Information
                         </label>
@@ -176,25 +176,15 @@ function SetProfile({ setUserDetails }) {
                           id="phone-no"
                           autoComplete="mobile"
                           placeholder="Phone number..."
-                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
 
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="country"
-                          className="block text-sm font-medium text-gray-700 mb-1"
-                        >
-                          Country
-                        </label>
-                        <CountrySelector handleCountry={handleCountry} />
-                      </div>
-
-                      <div className="col-span-6">
+                      <div className="col-span-6 ">
                         <label
                           htmlFor="street-address"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           Street address
                         </label>
@@ -203,7 +193,7 @@ function SetProfile({ setUserDetails }) {
                           name="streetAddress"
                           id="street-address"
                           autoComplete="street-address"
-                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 p-3 border block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
@@ -211,7 +201,7 @@ function SetProfile({ setUserDetails }) {
                       <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                         <label
                           htmlFor="city"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           City
                         </label>
@@ -220,7 +210,7 @@ function SetProfile({ setUserDetails }) {
                           name="city"
                           id="city"
                           autoComplete="address-level2"
-                          className="mt-1 p-3 border block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 p-3 border block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
@@ -228,7 +218,7 @@ function SetProfile({ setUserDetails }) {
                       <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                         <label
                           htmlFor="region"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           State / Province
                         </label>
@@ -237,7 +227,7 @@ function SetProfile({ setUserDetails }) {
                           name="region"
                           id="region"
                           autoComplete="address-level1"
-                          className="mt-1 p-3 border block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 p-3 border block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
@@ -245,7 +235,7 @@ function SetProfile({ setUserDetails }) {
                       <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                         <label
                           htmlFor="postal-code"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           ZIP / Postal code
                         </label>
@@ -254,7 +244,7 @@ function SetProfile({ setUserDetails }) {
                           name="postal-code"
                           id="postal-code"
                           autoComplete="postal-code"
-                          className="mt-1 p-3 border block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 p-3 border block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
@@ -262,7 +252,7 @@ function SetProfile({ setUserDetails }) {
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="houseNo"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           House No/Building name
                         </label>
@@ -271,7 +261,7 @@ function SetProfile({ setUserDetails }) {
                           name="houseNo"
                           id="houseNo"
                           autoComplete="family-name"
-                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
@@ -279,7 +269,7 @@ function SetProfile({ setUserDetails }) {
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="roadName"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-gray-700 dark:text-teal-50"
                         >
                           Road Name,Area,Colony
                         </label>
@@ -288,13 +278,23 @@ function SetProfile({ setUserDetails }) {
                           name="roadName"
                           id="roadName"
                           autoComplete="family-name"
-                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"
                           onChange={handleInput}
                         />
                       </div>
+
+                      <div className="col-span-6 sm:col-span-3 ">
+                        <label
+                          htmlFor="country"
+                          className="block text-sm font-medium text-gray-700  dark:text-teal-50 mb-1"
+                        >
+                          Country
+                        </label>
+                        <CountrySelector handleCountry={handleCountry} />
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                  <div className="bg-gray-50 px-4 py-3 text-right sm:px-6 dark:bg-gray-900">
                     <p className="text-xs text-red-400 font-semibold mb-2">
                       Please update your profile photo before Save
                     </p>

@@ -86,15 +86,15 @@ function Navbar({ currentPage, pages }) {
       <nav
         className={`${
           scroll ? "bg-gray-100" : "md:bg-transparent bg-gray-200"
-        } fixed md:flex flex-col w-full top-0 z-20 border-gray-200 md:px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 transition-all ease-in-out duration-500`}
+        } fixed md:flex flex-col w-full top-0 z-20 border-gray-200 md:px-2 sm:px-4 py-2.5 dark:bg-gray-900 transition-all ease-in-out duration-500`}
       >
-        <div className="relative flex w-full md:flex-wrap md:flex-row md:items-center md:mx-auto md:max-w-same">
+        <div className="relative flex m-auto w-[90%] md:flex-wrap md:flex-row md:items-center md:mx-auto md:max-w-same">
           <div
             className={`${
-              openNav ? "pb-4 border-b-2 border-blue-700" : ""
+              openNav ? "pb-4 border-b-2 border-blue-700 " : ""
             } flex justify-between items-center md:justify-start w-full md:w-1/3 md:pb-0 px-3`}
           >
-            <span className="font-sen text-3xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="font-sen text-2xl md:text-3xl font-semibold whitespace-nowrap dark:text-teal-50">
               <Link to={"/"}>
                 SHOP<span className="text-blue-700">SPOT</span>
               </Link>
@@ -114,12 +114,12 @@ function Navbar({ currentPage, pages }) {
 
               {openNav ? (
                 <VscChromeClose
-                  className="h-6 w-6 md:hidden"
+                  className="h-6 w-6 md:hidden  text-gray-400"
                   onClick={() => setOpenNav(!openNav)}
                 />
               ) : (
                 <TfiMenu
-                  className="h-5 w-5 md:hidden"
+                  className="h-5 w-5 md:hidden text-gray-400"
                   onClick={() => setOpenNav(!openNav)}
                 />
               )}
@@ -183,16 +183,16 @@ function Navbar({ currentPage, pages }) {
           <div
             className={`${
               openNav ? "top-16" : "-top-80"
-            } md:flex md:w-1/3 md:static md:mt-0 absolute w-full left-0 bg-gray-200 md:bg-transparent transition-all duration-500 ease-in-out`}
+            } md:flex md:w-1/3 md:static md:mt-0 fixed w-full left-0 bg-gray-200 md:bg-transparent transition-all duration-500 ease-in-out`}
           >
-            <ul className="md:m-auto flex flex-col  justify-center md:p-4 font-bold text-sm  rounded-lg md:flex-row md:space-x-8 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:mb-0">
+            <ul className="md:m-auto flex flex-col  justify-center md:p-4 font-bold text-sm md:flex-row md:space-x-8 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:mb-0">
               {pages.map((page, i) => {
                 if (page === currentPage) {
                   return (
                     <li key={i}>
                       <Link
                         to={`/${page.toLowerCase()}`}
-                        className="block mb-5 md:mb-0 py-2 pl-3 pr-4 rounded
+                        className="block mb-5 md:mb-0 py-2 pl-6 pr-4 rounded
                          md:bg-transparent text-blue-500 md:p-0 dark:text-white"
                       >
                         {page}
@@ -204,7 +204,7 @@ function Navbar({ currentPage, pages }) {
                     <li key={i}>
                       <Link
                         to={`/${page.toLowerCase()}`}
-                        className="block mb-5 md:mb-0 py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                        className="block mb-5 md:mb-0 py-2 pl-6 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                       >
                         {page}
                       </Link>

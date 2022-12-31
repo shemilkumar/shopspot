@@ -69,7 +69,7 @@ function Card({ product, alertShow }) {
           </Link>
           <div className="flex items-center justify-between">
             <Link to={product.id && `/product/${product.id}`}>
-              <span className="md:text-2xl text-sm font-bold text-gray-900 dark:text-white">
+              <span className="md:text-2xl xs:text-sm text-xs font-bold text-gray-900 dark:text-white">
                 {priceConvert(product.price)}
               </span>
             </Link>

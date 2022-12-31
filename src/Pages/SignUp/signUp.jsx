@@ -37,14 +37,14 @@ function SignUpPage({ signUp }) {
       <div>
         <div className="bg-grey-lighter min-h-screen flex flex-col">
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-            <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <div className="bg-white dark:bg-gray-900 px-6 py-8 rounded shadow-md text-black dark:text-teal-50 w-full">
               <h1 className="mb-8 text-3xl text-center">Sign up</h1>
 
               <input
                 type="text"
                 className={`${
                   name.length > 0 ? "border-green-500" : ""
-                } block appearance-none border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4`}
+                } block appearance-none border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900`}
                 name="fullname"
                 placeholder="Full Name"
                 value={name}
@@ -54,7 +54,7 @@ function SignUpPage({ signUp }) {
 
               <input
                 type="text"
-                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4"
+                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900"
                 name="email"
                 placeholder="Email"
                 value={signUpEmail}
@@ -64,7 +64,7 @@ function SignUpPage({ signUp }) {
 
               <input
                 type="password"
-                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4"
+                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900"
                 name="password"
                 placeholder="Password"
                 value={signUpPassword}
@@ -73,7 +73,7 @@ function SignUpPage({ signUp }) {
               />
               <input
                 type="password"
-                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4"
+                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900"
                 name="confirm_password"
                 placeholder="Confirm Password"
                 value={confirmPassword}
@@ -108,7 +108,7 @@ function SignUpPage({ signUp }) {
             </div>
 
             <Link to="/login">
-              <div className="text-grey-dark mt-6">
+              <div className="text-grey-dark mt-6 dark:text-teal-50">
                 Already have an account?
                 <span className="font-semibold">Login</span>
               </div>

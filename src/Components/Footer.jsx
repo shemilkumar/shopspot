@@ -3,29 +3,29 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="w-full bg-gray-100 bottom-0 ">
+    <div className="w-full bottom-0 dark:text-teal-50">
       <footer className="p-4 max-w-same m-auto sm:p-6 dark:bg-gray-900">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
-              <img
+              {/* <img
                 src="https://flowbite.com/docs/images/logo.svg"
                 className="mr-3 h-8"
                 alt="FlowBite Logo"
-              />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              /> */}
+              <span className="self-center text-2xl font-semibold whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-br from-purple-500 to-blue-600">
                 SHOPSPOT
               </span>
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-teal-50">
                 Resources
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <a href="#" className="hover:underline ">
                     Shopspot
                   </a>
                 </li>
@@ -37,7 +37,7 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-teal-50">
                 Follow us
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">
@@ -54,7 +54,7 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-teal-50">
                 Legal
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">

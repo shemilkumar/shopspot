@@ -4,7 +4,7 @@ import { testimonialAvatars } from "../Constants/constants";
 function Testimonials() {
   return (
     <div>
-      <section className="bg-gray-100 flex justify-center md:h-screen border-b-2">
+      <section className=" flex justify-center md:h-screen border-b-2 dark:text-teal-50">
         <div className="m-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -19,7 +19,7 @@ function Testimonials() {
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-16 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-16 lg:grid-cols-3 ">
             {testimonialAvatars.map((avatar, i) => {
               return (
                 <div key={i}>
@@ -30,13 +30,13 @@ function Testimonials() {
                   />
 
                   <blockquote className="-mt-6 flex flex-col justify-between rounded-lg p-12 text-center shadow-xl">
-                    <p className="text-lg font-bold text-gray-700">
+                    <p className="text-lg font-bold text-gray-700 dark:text-teal-100">
                       Sophie Lennon
                     </p>
-                    <p className="mt-1 text-xs font-medium text-gray-500">
+                    <p className="mt-1 text-xs font-medium text-gray-500 dark:text-teal-50">
                       Digital Marketing at Studio
                     </p>
-                    <p className="mt-4 text-sm text-gray-500">
+                    <p className="mt-4 text-sm text-gray-500 dark:text-teal-50">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Deserunt voluptatem alias ut provident sapiente
                       repellendus.

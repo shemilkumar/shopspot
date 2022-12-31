@@ -33,9 +33,9 @@ function Cart({ cartProducts }) {
           currentPage="Cart"
           pages={["Home", "Products", "Sell", "Profile", "Cart"]}
         />
-        <div className="flex flex-col">
+        <div className="flex flex-col dark:text-teal-50">
           <div className="w-full">
-            <h1 className="md:text-5xl text-3xl font-semibold text-center mt-24 mb-8 md:mb-16 mx-24">
+            <h1 className="md:text-5xl text-2xl font-semibold text-center mt-24 mb-8 md:mb-16 md:mx-24">
               Shopping Cart
             </h1>
           </div>
@@ -80,7 +80,7 @@ function Cart({ cartProducts }) {
                 <div className="w-[90%] flex flex-col items-end mb-16">
                   <p className="text-2xl text-gray-500 ">
                     Sub Total:{" "}
-                    <span className="md:text-4xl text-3xl font-semibold tracking-wider text-black">
+                    <span className="md:text-4xl text-3xl font-semibold tracking-wider text-black dark:text-teal-50">
                       {priceConvert(totalPrice)}
                     </span>
                   </p>
@@ -95,14 +95,19 @@ function Cart({ cartProducts }) {
                     <Link to={"/products"}>
                       <button
                         type="button"
-                        className="mr-4 border-2 border-blue-700 text-blue-700  bg-transparent  focus:ring-4 focus:ring-blue-300 font-semibold text-md px-4 py-3 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                        className="mr-4 border-2 border-blue-700 text-blue-700  bg-transparent  focus:ring-4 focus:ring-blue-300 font-semibold md:text-base text-xs md:px-4 md:py-3 px-1.5 py-1.5 dark:bg-transparent dark:hover:bg-transparent focus:outline-none dark:focus:ring-blue-800"
                       >
                         Continue Shopping
                       </button>
                     </Link>
                     <button
                       type="button"
-                      className="text-white bg-blue-700 hover:bg-blue-800 font-semibold text-md px-12 py-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="text-white bg-orange-500 dark:bg-gradient-to-br dark:from-pink-500 dark:to-orange-600 hover:bg-orange-700 font-semibold md:text-base text-xs md:px-12 md:py-3 px-8 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      onClick={() =>
+                        alert(
+                          "Checkout Page is in progress, Thanks for visiting 💕️."
+                        )
+                      }
                     >
                       Checkout
                     </button>

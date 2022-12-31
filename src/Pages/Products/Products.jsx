@@ -35,7 +35,7 @@ function Home({ wholeProducts, filterCategory }) {
 
   useEffect(() => {
     const gridLocal = localStorage.getItem("grid");
-    gridLocal ? setGrid(gridLocal) : setGrid("list");
+    gridLocal ? setGrid(gridLocal) : setGrid("grid");
 
     // showAlert &&
     //   setTimeout(() => {
@@ -52,12 +52,13 @@ function Home({ wholeProducts, filterCategory }) {
   useEffect(() => {
     switch (filterCategory) {
       case "electronics":
+        // console.log("ki");
         categoryProducts = fullProducts.filter(
           (product) =>
             product.category === "laptops" || product.category === "smartphones"
         );
         setAllProducts(categoryProducts);
-        setGrid(true);
+        setGrid("grid");
         break;
 
       case "fashion":
@@ -65,7 +66,7 @@ function Home({ wholeProducts, filterCategory }) {
           fashionCategories.includes(product.category)
         );
         setAllProducts(categoryProducts);
-        setGrid(true);
+        setGrid("grid");
         break;
 
       default:
@@ -168,7 +169,7 @@ function Home({ wholeProducts, filterCategory }) {
                 ? "z-50 md:z-0 md:translate-x-0"
                 : "md:translate-x-0 -translate-x-full md:z-0 -z-50"
             }md:row-start-1 md:row-span-6 md:static absolute h-screen md:h-full
-           top-0 left-0 bg-white md:bg-transparent transition-all duration-500 ease-in-out`}
+           top-0 left-0 bg-white dark:bg-gray-900 dark:text-teal-50 md:bg-transparent transition-all duration-500 ease-in-out`}
           >
             <div className="filter m-4">
               <div className="search">
@@ -180,7 +181,7 @@ function Home({ wholeProducts, filterCategory }) {
                 </div>
                 <form onSubmit={(e) => e.preventDefault()}>
                   <input
-                    className="w-10/12"
+                    className="w-10/12 md:w-1/2 px-1.5 py-1 md:px-3 md:py-1.5 border-2 border-gray-400"
                     type="text"
                     value={searchText}
                     placeholder="SEARCH..."
@@ -188,7 +189,7 @@ function Home({ wholeProducts, filterCategory }) {
                   />
                 </form>
               </div>
-              <div className="mt-8">
+              <div className="mt-8 ">
                 <h1 className="text-lg font-semibold mb-3">Category</h1>
                 <div className="grid grid-cols-2 md:grid-cols-1">
                   {showMore
@@ -196,7 +197,7 @@ function Home({ wholeProducts, filterCategory }) {
                         return (
                           <div key={i}>
                             <button
-                              className="text-sm cursor-pointer text-gray-600 mb-1 focus:font-bold focus:text-blue-500 p-0"
+                              className="text-sm cursor-pointer text-gray-600 dark:text-gray-400  mb-1 focus:font-bold focus:text-blue-500 p-0"
                               key={i}
                               onClick={() => categoryFilter(cat)}
                             >
@@ -211,7 +212,7 @@ function Home({ wholeProducts, filterCategory }) {
                           return (
                             <div key={i}>
                               <button
-                                className="text-sm cursor-pointer text-gray-600 mb-1 focus:font-bold focus:text-blue-500 p-0"
+                                className="text-sm cursor-pointer text-gray-600 dark:text-gray-400 mb-1 focus:font-bold focus:text-blue-500 p-0"
                                 key={i}
                                 onClick={() => categoryFilter(cat)}
                               >
@@ -234,7 +235,7 @@ function Home({ wholeProducts, filterCategory }) {
                 <div>
                   <div>
                     <button
-                      className="text-sm cursor-pointer text-gray-600 mb-1 focus:font-bold focus:text-blue-500 p-0"
+                      className="text-sm cursor-pointer text-gray-600  dark:text-gray-400 mb-1 focus:font-bold focus:text-blue-500 p-0"
                       onClick={(e) => discountFilter(e.target.value)}
                       value={15}
                     >
@@ -243,7 +244,7 @@ function Home({ wholeProducts, filterCategory }) {
                   </div>
                   <div>
                     <button
-                      className="text-sm cursor-pointer text-gray-600 mb-1 focus:font-bold focus:text-blue-500 p-0"
+                      className="text-sm cursor-pointer text-gray-600 mb-1 dark:text-gray-400 focus:font-bold focus:text-blue-500 p-0"
                       onClick={(e) => discountFilter(e.target.value)}
                       value={10}
                     >
@@ -252,7 +253,7 @@ function Home({ wholeProducts, filterCategory }) {
                   </div>
                   <div>
                     <button
-                      className="text-sm cursor-pointer text-gray-600 mb-1 focus:font-bold focus:text-blue-500 p-0"
+                      className="text-sm cursor-pointer text-gray-600 mb-1 dark:text-gray-400 focus:font-bold focus:text-blue-500 p-0"
                       onClick={(e) => discountFilter(e.target.value)}
                       value={5}
                     >
@@ -261,7 +262,7 @@ function Home({ wholeProducts, filterCategory }) {
                   </div>
                   <div>
                     <button
-                      className="text-sm cursor-pointer text-gray-600 mb-1 focus:font-bold focus:text-blue-500 p-0"
+                      className="text-sm cursor-pointer text-gray-600 mb-1 dark:text-gray-400 focus:font-bold focus:text-blue-500 p-0"
                       onClick={(e) => discountFilter(e.target.value)}
                       value={0}
                     >
@@ -282,9 +283,9 @@ function Home({ wholeProducts, filterCategory }) {
             </div>
           </div>
 
-          <div className="md:col-start-2 row-start-1 md:col-span-3 col-span-4 mb-6">
-            <div className="flex justify-between items-center">
-              <div className="flex justify-center items-center my-2">
+          <div className="md:col-start-2 row-start-1 md:col-span-3 col-span-4 mb-6 ">
+            <div className="flex justify-between items-center md:w-full w-[90%] m-auto">
+              <div className="hidden md:flex justify-center items-center my-2">
                 <div
                   className={
                     grid === "list"
@@ -313,12 +314,19 @@ function Home({ wholeProducts, filterCategory }) {
                 </div>
               </div>
 
+              <div
+                className="md:hidden flex justify-center items-center w-7 h-7 bg-cyan-600 text-white rounded-full py-2 font-semibold px-2 tracking-wider"
+                onClick={() => setShowFilter(!showFilter)}
+              >
+                <TbArrowsLeftRight />
+              </div>
+
               <div className="">
-                <label htmlFor="sort" className="hidden">
+                <label htmlFor="sort" className="hidden md:visible">
                   Sort by{" "}
                 </label>
                 <select
-                  className="border-none text-sm w-40"
+                  className="border-none md:border-4 md:px-4 md:py-2 px-2 py-1.5 text-sm w-40"
                   name="sort"
                   id="sort"
                   onChange={(e) => sortProducts(e.target.value)}
@@ -329,13 +337,6 @@ function Home({ wholeProducts, filterCategory }) {
                   <option value="rating">Rating</option>
                   <option value="discount">Discount</option>
                 </select>
-              </div>
-
-              <div
-                className="md:hidden flex justify-center items-center w-7 h-7 bg-cyan-600 text-white rounded-full py-2 font-semibold px-2 tracking-wider"
-                onClick={() => setShowFilter(!showFilter)}
-              >
-                <TbArrowsLeftRight />
               </div>
             </div>
           </div>
@@ -370,7 +371,7 @@ function Home({ wholeProducts, filterCategory }) {
                 })}
             </div>
 
-            <div className="grid md:grid-cols-4 xs:grid-cols-2 grid-cols-1 md:gap-4 gap-0.25">
+            <div className="grid md:grid-cols-3 xl:grid-cols-4 xs:grid-cols-2 grid-cols-1 md:gap-4 gap-0.25">
               {allProducts.length !== 0 &&
                 grid === "grid" &&
                 allProducts.map((product, i) => {

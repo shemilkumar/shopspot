@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function SellSection() {
   return (
     <>
-      <div className="w-full h-screen overflow-hidden relative">
+      <div className="w-full h-screen overflow-hidden relative dark:text-teal-50">
         <img
           src={image}
           alt="bg"
@@ -35,7 +35,7 @@ function SellSection() {
                   type="button"
                   className="mt-4 cursor-pointer px-1 py-1 md:text-2xl font-semibold from-rose-400 via-fuchsia-500 to-indigo-500 bg-gradient-to-r"
                 >
-                  <span className="cursor-pointer block text-gray-100  md:px-16 px-10 md:py-2 py-1.5 font-semibold bg-gray-900 bg-opacity-75 uppercase hover:bg-opacity-0">
+                  <span className="cursor-pointer block text-gray-100  md:px-16 px-10 md:py-2 py-1.5 font-semibold bg-gray-900 bg-opacity-75 uppercase hover:bg-opacity-0 dark:bg-opacity-0">
                     Sell
                   </span>
                 </button>

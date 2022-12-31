@@ -19,7 +19,7 @@ function ProductDetail({ product, navigate, uid }) {
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
 
-      <div className="w-full min-h-screen flex justify-center">
+      <div className="w-full min-h-screen flex justify-center dark:text-teal-50">
         <div className="grid grid-cols-1 md:grid-cols-2 md:m-auto mt-24 w-[90%] h-[80%]">
           <div className="m-auto w-[100%] h-[100%]">
             <ImageGrid images={product.images} />
@@ -60,7 +60,7 @@ function ProductDetail({ product, navigate, uid }) {
                   className={`px-2 py-0 rounded-xl ${
                     product.rating
                       ? "bg-green-600 text-white"
-                      : "border-orange-500 border text-orange-500 text-xs"
+                      : "border-orange-500 border text-orange-500 texgrade text-xs"
                   } font-semibold `}
                 >
                   {product.rating
@@ -72,7 +72,7 @@ function ProductDetail({ product, navigate, uid }) {
 
             <p className="mt-4 ml-4 text-xl text-red-500">
               {/* {`-${product.discountPercentage.toFixed(1)}$%`} */}
-              <span className="text-4xl text-black font-sen font-medium">
+              <span className="text-4xl text-black dark:text-teal-100 font-sen font-medium">
                 {" "}
                 {priceConvert(product.price)}
               </span>
@@ -91,7 +91,7 @@ function ProductDetail({ product, navigate, uid }) {
 
             <p className="m-4 w-10/12 md:w-2/3">{product.description}</p>
 
-            <div className="text-4xl text-center border-b-2 border-gray-200 p-4 grid grid-cols-4 w-10/12 items-center">
+            <div className="text-4xl text-center border-b-2 border-gray-800 p-4 grid grid-cols-4 md:w-10/12 w-full items-center">
               <div className="flex flex-col items-center">
                 <TbTruckDelivery />
                 <p className="mt-2 text-xs">Free Delivery</p>
@@ -110,8 +110,8 @@ function ProductDetail({ product, navigate, uid }) {
               </div>
             </div>
 
-            <div className="w-8/12 grid grid-cols-3 gap-x-4">
-              <div className="p-2 font-semibold">
+            <div className="md:w-8/12 w-[90%] grid grid-cols-3 gap-x-4 m-auto md:mx-3">
+              <div className="p-2 font-semibold md:text-base text-sm">
                 <p className="mt-4">Brand</p>
                 <p className="mt-4">Category</p>
                 <p
@@ -123,7 +123,7 @@ function ProductDetail({ product, navigate, uid }) {
                 </p>
               </div>
 
-              <div className="p-2 col-span-2">
+              <div className="p-2 col-span-2 md:text-base text-sm">
                 <p className="mt-4">{product.brand}</p>
                 <p className="mt-4">{product.category}</p>
                 <p className="mt-4">
@@ -132,10 +132,10 @@ function ProductDetail({ product, navigate, uid }) {
               </div>
             </div>
 
-            <div className="flex my-10 text-lg font-lg font-sen">
+            <div className="flex my-10 text-sm md:text-lg font-lg  font-sen">
               <button
                 type="button"
-                className="ml-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="ml-4 text-white bg-blue-700 dark:bg-gradient-to-br dark:from-blue-700 dark:to-cyan-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 onClick={() =>
                   FirebaseDbService.storeCartProducts(
                     product,
@@ -159,7 +159,7 @@ function ProductDetail({ product, navigate, uid }) {
 
               <button
                 type="button"
-                className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-md px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white bg-orange-500 dark:bg-gradient-to-br dark:from-orange-400 dark:to-red-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-md px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-blue-800"
               >
                 Buy now
               </button>

@@ -22,7 +22,7 @@ function ListView({ product, key }) {
             </div>
           </div>
 
-          <div className="col-start-2 col-span-2">
+          <div className="col-start-2 col-span-2 my-auto">
             <div className="flex justify-center">
               <div className="md:w-2/3">
                 <h1 className="m-4 md:text-4xl text-2xl font-thin">
@@ -41,7 +41,7 @@ function ListView({ product, key }) {
                       : "Second Product"}
                   </span>
                 </h1>
-                <p className="m-4 md:w-2/3 w-10/12 text-xs md:text-base">
+                <p className="m-4 w-11/12 text-xs md:text-sm text-ew">
                   {product.description}
                 </p>
 
@@ -57,7 +57,7 @@ function ListView({ product, key }) {
             </div>
           </div>
 
-          <div className="2">
+          <div className="my-auto">
             <p className="mt-4 md:ml-4 ml-1 text-lg md:text-xl text-red-500">
               {`-${product.discountPercentage.toFixed(1)}%`}
               <span className="md:text-4xl text-xl text-black font-sen font-bold md:font-medium">

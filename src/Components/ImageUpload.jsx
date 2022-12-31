@@ -28,23 +28,23 @@ function ImageUpload({ handleImage }) {
 
   return (
     <div>
-      <div className="rounded-lg shadow-xl bg-gray-50 md:w-1/2 w-[360px]">
+      <div className="rounded-lg shadow-xl bg-gray-50 md:w-1/2 w-full dark:bg-gray-900 ">
         <div className="">
           <span className="flex justify-center items-center text-[12px] mb-1 text-red-500">
             {message}
           </span>
           <div className="flex items-center justify-center w-full">
-            <label className="flex cursor-pointer flex-col w-full h-32 border-4 rounded-md border-dashed hover:bg-gray-100 hover:border-gray-300">
+            <label className="flex cursor-pointer flex-col w-full h-32 border-4 rounded-md border-dashed dark:bg-gray-700 dark:border-gray-500 hover:border-gray-300">
               <div className="flex flex-col items-center justify-center pt-7">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-gray-400 group-hover:text-gray-600"
+                  className="w-12 h-12 text-gray-400 dark:bg-gray-700 group-hover:text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
                 </svg>
-                <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
+                <p className="pt-1 text-sm tracking-widerdark:bg-gray-700  text-gray-400 group-hover:text-gray-600">
                   Select a photo
                 </p>
               </div>
@@ -91,7 +91,7 @@ function ImageUpload({ handleImage }) {
       </div>
       <div className="mt-8">
         <span
-          className=" bg-blue-500 text-white px-6 py-2 rounded cursor-pointer hover:bg-blue-600"
+          className="text-xs bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600"
           onClick={() => handleImage(files)}
         >
           Upload

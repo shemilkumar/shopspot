@@ -91,7 +91,7 @@ function ProductDetail({ product, navigate, uid }) {
 
             <p className="m-4 w-10/12 md:w-2/3">{product.description}</p>
 
-            <div className="text-4xl text-center border-b-2 border-gray-800 p-4 grid grid-cols-4 md:w-10/12 w-full items-center">
+            <div className="text-4xl text-center border-b-2 dark:border-gray-800 p-4 grid grid-cols-4 md:w-10/12 w-full items-center">
               <div className="flex flex-col items-center">
                 <TbTruckDelivery />
                 <p className="mt-2 text-xs">Free Delivery</p>
@@ -159,6 +159,11 @@ function ProductDetail({ product, navigate, uid }) {
 
               <button
                 type="button"
+                onClick={() =>
+                  alert(
+                    "Checkout Page is in progress, Thanks for visiting 💕️."
+                  )
+                }
                 className="text-white bg-orange-500 dark:bg-gradient-to-br dark:from-orange-400 dark:to-red-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-md px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-blue-800"
               >
                 Buy now

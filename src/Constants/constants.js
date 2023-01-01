@@ -12,10 +12,31 @@ export const apiFullProduct = axios.create({
   baseURL: FULL_PRODUCT_URL,
 });
 
-export const testimonialAvatars = [
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29tYW4lMjBhdmF0YXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=150&q=80",
-  "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-  "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80",
+export const testimonialData = [
+  {
+    name: "Sophie Lennon",
+    job: "Digital Marketing at Studio",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29tYW4lMjBhdmF0YXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=150&q=80",
+    review:
+      "I have got best shopping experience. It has finest quality of products and service. Very user friendly and has clear steps to follow. Overall I loved the experience",
+  },
+  {
+    name: "Ethan Matthew",
+    job: "Project Manager at NexusCorp",
+    avatar:
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
+    review:
+      "Most convenient to use. I have ordered products from it and never felt any difficulties and the quality is so good.the service provided is also good. Thankyou shopspot",
+  },
+  {
+    name: "Olivia David",
+    job: "System Administrator at SkyTech",
+    avatar:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80",
+    review:
+      "I got what I expected. This is my 5th order and I am really satisfied with the service.Selling option is an attraction.It promotes upcoming sellers. Kudos to that thought",
+  },
 ];
 
 export const fashionCategories = [

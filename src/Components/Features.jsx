@@ -10,12 +10,13 @@ function Features() {
       <section className="pb-16 md:pb-0 pt-10 bg-gray-100 dark:bg-gray-900">
         <div className="md:grid flex flex-col max-w-same  px-1 mx-auto lg:gap-8 xl:gap-0 lg:py-1 lg:grid-cols-12">
           <div className="order-last md:order-first mr-auto place-self-center lg:col-span-7">
-            <h1 className="max-w-xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-teal-50">
-              Payments tool for software companies
+            <h1 className="max-w-xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-teal-50">
+              Find the perfect phone or laptop for you
             </h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              From checkout to global sales tax compliance, companies around the
-              world use Flowbite to simplify their payment stack.
+              Be a trendsetter with the new gadgets from your favorite brands.
+              New launches,best deals and much more awaiting you. Get the latest
+              and greatest in phones and laptops from our collection.
             </p>
 
             <div className="text-center">
@@ -45,12 +46,14 @@ function Features() {
             <LazyLoadImage effect="blur" src={image} alt="mockup" />
           </div>
           <div className="ml-auto place-self-center lg:col-span-7">
-            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-teal-50">
-              Payments tool for software companies
+            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-teal-50">
+              Find your style with our trendy fashion options
             </h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              From checkout to global sales tax compliance, companies around the
-              world use Flowbite to simplify their payment stack.
+              Stock up with fresh brands curated for you Flaunt the fashionista
+              in you. Find your perfect look with our wide range of fashion
+              options. Stay fashionable all year round with our selection and
+              shop the latest fashion trends with us.
             </p>
 
             <Link to={"/products/fashion"}>

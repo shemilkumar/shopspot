@@ -1,45 +1,43 @@
 import React from "react";
-import { testimonialAvatars } from "../Constants/constants";
+import { testimonialData } from "../Constants/constants";
 
 function Testimonials() {
   return (
     <div>
-      <section className=" flex justify-center md:h-screen border-b-2 dark:text-teal-50">
+      <section className="flex justify-center md:min-h-screen border-b-2 dark:text-teal-50">
         <div className="m-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
               Read trusted reviews from our customers
             </h2>
 
-            <p className="text-gring-offset-warm-gray-500 mx-auto mt-4 max-w-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur praesentium natus sapiente commodi. Aliquid sunt
-              tempore iste repellendus explicabo dignissimos placeat, autem
-              harum dolore reprehenderit quis! Quo totam dignissimos earum.
+            <p className="text-gring-offset-warm-gray-500 mx-auto mt-4 max-w-lg tracking-wider">
+              Get a better understanding of why our customers trust us by
+              reading through our collection of trusted reviews. Hear from real
+              people about their experiences with our products and services and
+              see for yourself why we have so many satisfied customers.
             </p>
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-16 lg:grid-cols-3 ">
-            {testimonialAvatars.map((avatar, i) => {
+            {testimonialData.map((testimonial, i) => {
               return (
                 <div key={i}>
                   <img
                     alt="avatar"
-                    src={avatar}
+                    src={testimonial.avatar}
                     className="mx-auto h-24 w-24 rounded-full object-cover shadow-xl"
                   />
 
                   <blockquote className="-mt-6 flex flex-col justify-between rounded-lg p-12 text-center shadow-xl">
                     <p className="text-lg font-bold text-gray-700 dark:text-teal-100">
-                      Sophie Lennon
+                      {testimonial.name}
                     </p>
                     <p className="mt-1 text-xs font-medium text-gray-500 dark:text-teal-50">
-                      Digital Marketing at Studio
+                      {testimonial.job}
                     </p>
                     <p className="mt-4 text-sm text-gray-500 dark:text-teal-50">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Deserunt voluptatem alias ut provident sapiente
-                      repellendus.
+                      {testimonial.review}
                     </p>
 
                     <div className="mt-8 flex justify-center gap-0.5 text-green-500">

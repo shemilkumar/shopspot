@@ -139,7 +139,7 @@ function Navbar({ currentPage, pages }) {
                   onClick={() => {
                     dispatch(FirebaseAuthService.signOutService());
                     navigate("/login");
-                    window.location.reload(false);
+                    // window.location.reload(false);
                   }}
                   className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
                 />

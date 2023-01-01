@@ -13,19 +13,19 @@ function SellSection() {
         />
         <div className="absolute inset-0 bg-gray-900 bg-opacity-75"></div>
         <div className="absolute w-full h-full flex justify-center items-center">
-          <div className="max-w-same flex flex-col justify-center text-gray-100">
+          <div className="max-w-same flex flex-col justify-center text-teal-100">
             <div className="">
-              <h1 className="text-4xl md:text-8xl font-bold text-center">
-                SHOPSPOT
+              <h1 className="text-2xl md:text-5xl font-bold text-center">
+                Want to sell your products online?
               </h1>
             </div>
 
             <div className="flex justify-center ">
-              <p className="md:w-1/2 mt-4 md:text-xl font-lg text-white">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perferendis facilis at aperiam ab ratione corporis molestias.
-                Quae eveniet totam quibusdam? Possimus, iusto nobis quo mollitia
-                minima
+              <p className="md:w-1/2 mt-4 md:text-xl font-lg text-teal-50 tracking-wider">
+                You are at the right spot. We are here to support you. Become a
+                shopspot seller now and grow your business online. Make extra
+                cash by exploring the business mind in you. Now you can sell
+                your products here at simple steps.
               </p>
             </div>
 

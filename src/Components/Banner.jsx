@@ -15,13 +15,16 @@ function Banner() {
         <div className="w-full md:h-full h-full flex justify-center md:items-center items-end ">
           <div className="max-w-same px-3">
             <div className="w-1/3">
-              <h1 className="md:text-8xl text-3xl font-bold">SHOPSPOT</h1>
+              <h1 className="md:text-8xl text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-tr from-cyan-700 via-blue-500 to-purple-700">
+                SHOPSPOT
+              </h1>
             </div>
 
-            <p className="md:w-5/12 mt-4 md:text-xl md:font-lg text-sm font-medium">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perferendis facilis at aperiam ab ratione corporis molestias. Quae
-              eveniet totam quibusdam? Possimus, iusto nobis quo mollitia minima
+            <p className="md:w-5/12 mt-4 md:text-xl md:font-lg text-sm font-medium tracking-wider">
+              Online shopping and selling-Shop fashion, gadgets, home, and
+              everything, All in one place at shopspot. Everything you'll love
+              at affordable prices. Discover new trends,Get the shopping
+              experience like never before.
             </p>
 
             <div className="md:w-1/3">

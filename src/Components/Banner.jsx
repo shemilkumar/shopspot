@@ -14,8 +14,8 @@ function Banner() {
 
         <div className="w-full md:h-full h-full flex justify-center md:items-center items-end ">
           <div className="max-w-same px-3">
-            <div className="w-1/3">
-              <h1 className="md:text-8xl text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-tr from-cyan-700 via-blue-500 to-purple-700">
+            <div className="w-full">
+              <h1 className="inline md:text-8xl text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-tr from-cyan-700 via-blue-500 to-purple-700">
                 SHOPSPOT
               </h1>
             </div>

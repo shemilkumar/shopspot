@@ -111,8 +111,8 @@ function Home({ wholeProducts, filterCategory }) {
 
     const filteredProducts = fullProducts.filter(
       (product) =>
-        product.title.toLowerCase().includes(searchInput) ||
-        product.brand.toLowerCase().includes(searchInput)
+        product.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+        product.brand.toLowerCase().includes(searchInput.toLowerCase())
     );
 
     setAllProducts(filteredProducts);
@@ -181,7 +181,7 @@ function Home({ wholeProducts, filterCategory }) {
                 </div>
                 <form onSubmit={(e) => e.preventDefault()}>
                   <input
-                    className="w-10/12 md:w-1/2 px-1.5 py-1 md:px-3 md:py-1.5 border-2 border-gray-400"
+                    className="w-10/12 md:w-1/2 px-1.5 py-1 md:px-3 md:py-1.5 border-2 border-gray-400 dark:text-gray-900 focus:outline-none"
                     type="text"
                     value={searchText}
                     placeholder="SEARCH..."
@@ -350,10 +350,14 @@ function Home({ wholeProducts, filterCategory }) {
 
             {allProducts.length === 0 && (
               <div className="mt-20 text-center">
-                <span className="uppercase text-3xl font-semibold">
+                <span className="uppercase text-3xl font-semibold dark:text-teal-50">
                   No Products
                 </span>
-                <img src={noData} alt="" className="w-1/4 h-1/4 m-auto" />
+                <img
+                  src={noData}
+                  alt=""
+                  className="mt-6 w-1/2 md:w-1/4 h-1/4 m-auto"
+                />
               </div>
             )}
             <div>

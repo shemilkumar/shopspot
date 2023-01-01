@@ -296,7 +296,7 @@ function SetProfile({ setUserDetails }) {
                   </div>
                   <div className="bg-gray-50 px-4 py-3 text-right sm:px-6 dark:bg-gray-900">
                     <p className="text-xs text-red-400 font-semibold mb-2">
-                      Please update your profile photo before Save
+                      Please update your profile photo before saving.
                     </p>
                     <button
                       type="submit"

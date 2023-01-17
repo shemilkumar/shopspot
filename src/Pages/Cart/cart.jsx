@@ -103,11 +103,7 @@ function Cart({ cartProducts }) {
                     <button
                       type="button"
                       className="text-white bg-orange-500 dark:bg-gradient-to-br dark:from-pink-500 dark:to-orange-600 hover:bg-orange-700 font-semibold md:text-base text-xs md:px-12 md:py-3 px-8 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      onClick={() =>
-                        alert(
-                          "Checkout Page is in progress, Thanks for visiting 💕️."
-                        )
-                      }
+                      onClick={() => alert("Checkout Page is in progress.")}
                     >
                       Checkout
                     </button>

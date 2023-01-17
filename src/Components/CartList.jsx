@@ -8,9 +8,11 @@ function CartList({ cartProduct, uid }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const [subTotal, setSubTotal] = useState(cartProduct.subTotal);
+  // const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
     // console.log(quantity, subTotal);
+    // debugger;
   }, [quantity, subTotal]);
 
   return (
@@ -56,11 +58,12 @@ function CartList({ cartProduct, uid }) {
             <Link to={"/cart"}>
               <div className="md:mt-8 mt-4 mb-4">
                 <span
-                  className="rounded-full text-red-600 font-semibold tracking-widest cursor-pointer hover:bg-red-100"
+                  className="rounded-full text-red-600 font-semibold tracking-widest cursor-pointer md:hover:bg-red-100 "
                   onClick={() => {
                     dispatch(
                       FirebaseDbService.deleteCartProduct(uid, cartProduct.id)
                     );
+                    // setDeleted(true);
                     // dispatch(FirebaseDbService.getCartProducts(uid));
                   }}
                 >

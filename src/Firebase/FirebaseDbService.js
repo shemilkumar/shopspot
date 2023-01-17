@@ -21,7 +21,7 @@ class FirebaseDbService {
       // console.log(uid);
       if (!uid) {
         navigate("/login");
-        console.log("yes");
+        // console.log("yes");
         return;
       }
 

@@ -35,6 +35,7 @@ function LoginPage({ login }) {
                 placeholder="Email"
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
+                required
               />
 
               <input
@@ -44,6 +45,7 @@ function LoginPage({ login }) {
                 placeholder="Password"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
+                required
               />
 
               <button

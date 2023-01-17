@@ -9,15 +9,22 @@ function Search() {
   const dispatch = useDispatch();
   const allUsers = useSelector((state) => state.user.allUsers);
 
-  const users = allUsers.filter((user) => {
-    if (input !== "") {
-      if (user.name) return user.name.toLowerCase().includes(input);
-      else {
-        const name = user.firstName + " " + user.lastName;
-        return name.toLowerCase().includes(input);
-      }
-    }
-  });
+  //  else if (user.firstName) {
+  //   console.log("ki");
+  //   const name = user.firstName + " " + user.lastName;
+  //   return name.toLowerCase().includes(input);
+  // }
+  // console.log(allUsers);
+
+  const users = allUsers.filter(
+    (user) => input !== "" && user.name?.toLowerCase().includes(input)
+  );
+
+  if (input !== "")
+    if (users.length === 0)
+      users.push({
+        name: "No such user",
+      });
 
   useEffect(() => {
     dispatch(FirebaseDbService.getAllUsers());

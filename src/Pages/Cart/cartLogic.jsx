@@ -18,7 +18,7 @@ function cartLogic() {
     uid === "" || uid === null
       ? navigate("/login")
       : dispatch(firebaseDbService.getCartProducts(uid));
-  }, [uid]);
+  }, [uid, cartProducts]);
 
   // console.log(uid);
   // console.log(cartProducts);

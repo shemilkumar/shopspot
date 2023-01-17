@@ -20,9 +20,16 @@ function Home({ wholeProducts, filterCategory }) {
     (product) => product.id !== 29 && product.id !== 70 && product.id !== 45
   );
 
+  const popularProducts = fullProducts;
+  let categoryProducts = [];
+
   const [showMore, setShowMore] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
+
+  const [grid, setGrid] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const [allProducts, setAllProducts] = useState(fullProducts);
 
   const alertShow = () => {
     setShowAlert(true);
@@ -31,28 +38,17 @@ function Home({ wholeProducts, filterCategory }) {
     }, 1750);
   };
 
-  const [grid, setGrid] = useState("");
+  // useEffect(() => {
+  //   const gridLocal = localStorage.getItem("grid");
+  //   gridLocal ? setGrid(gridLocal) : setGrid("grid");
+  // }, []);
 
   useEffect(() => {
     const gridLocal = localStorage.getItem("grid");
     gridLocal ? setGrid(gridLocal) : setGrid("grid");
 
-    // showAlert &&
-    //   setTimeout(() => {
-    //     setShowAlert(false);
-    //   }, 2000);
-  }, []);
-
-  const popularProducts = fullProducts;
-  const [allProducts, setAllProducts] = useState(fullProducts);
-  const [searchText, setSearchText] = useState("");
-
-  let categoryProducts = [];
-
-  useEffect(() => {
     switch (filterCategory) {
       case "electronics":
-        // console.log("ki");
         categoryProducts = fullProducts.filter(
           (product) =>
             product.category === "laptops" || product.category === "smartphones"
@@ -74,37 +70,7 @@ function Home({ wholeProducts, filterCategory }) {
     }
   }, []);
 
-  // if (filterCategory) setAllProducts(categoryProducts);
-
-  const sortProducts = (value) => {
-    switch (value) {
-      case "priceLtoH":
-        fullProducts.sort((a, b) => a.price - b.price);
-        setAllProducts(fullProducts);
-        break;
-
-      case "priceHtoL":
-        fullProducts.sort((a, b) => b.price - a.price);
-        setAllProducts(fullProducts);
-        break;
-
-      case "rating":
-        fullProducts.sort((a, b) => b.rating - a.rating);
-        setAllProducts(fullProducts);
-        break;
-
-      case "discount":
-        fullProducts.sort(
-          (a, b) => b.discountPercentage - a.discountPercentage
-        );
-        setAllProducts(fullProducts);
-        break;
-
-      default:
-        setAllProducts(popularProducts);
-        break;
-    }
-  };
+  // console.log("jii", allProducts);
 
   const filterProducts = (searchInput) => {
     setSearchText(searchInput);
@@ -145,6 +111,40 @@ function Home({ wholeProducts, filterCategory }) {
       (product) => product.discountPercentage >= +value
     );
     setAllProducts(filteredProducts);
+  };
+
+  // let sortedProducts;
+
+  const sortProducts = (value) => {
+    switch (value) {
+      case "priceLtoH":
+        fullProducts.sort((a, b) => a.price - b.price);
+        setAllProducts(fullProducts);
+        // console.log(allProducts);
+        break;
+
+      case "priceHtoL":
+        fullProducts.sort((a, b) => b.price - a.price);
+        setAllProducts(fullProducts);
+        // console.log(allProducts);
+        break;
+
+      case "rating":
+        fullProducts.sort((a, b) => b.rating - a.rating);
+        setAllProducts(fullProducts);
+        break;
+
+      case "discount":
+        fullProducts.sort(
+          (a, b) => b.discountPercentage - a.discountPercentage
+        );
+        setAllProducts(fullProducts);
+        break;
+
+      default:
+        setAllProducts(popularProducts);
+        break;
+    }
   };
 
   return (

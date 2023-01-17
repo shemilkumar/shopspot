@@ -52,7 +52,7 @@ function Navbar({ currentPage, pages }) {
 
   useEffect(() => {
     // !online && navigate("/networkError");
-
+    // console.log("ji");
     // console.log(online);
 
     uid && dispatch(FirebaseDbService.getUserData(uid));
@@ -75,7 +75,7 @@ function Navbar({ currentPage, pages }) {
         window.removeEventListener("scroll", bgColorChange);
       };
     }
-  }, [uid, lastScrollY, online]);
+  }, [uid, lastScrollY]);
 
   return (
     <div

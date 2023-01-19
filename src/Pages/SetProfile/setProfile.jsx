@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import firebaseStorage from "../../Firebase/FirebaseStorageService";
 import { useDispatch, useSelector } from "react-redux";
+import validate from "../../Helper/validation";
 
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import CountrySelector from "../../Helper/CountrySelector";
 
 function SetProfile({ setUserDetails }) {
+  let validatedInputs;
   const dispatch = useDispatch();
   const url = useSelector((state) => state.user.imageUrl);
 
@@ -20,12 +22,12 @@ function SetProfile({ setUserDetails }) {
       return { ...prev, [name]: value };
     });
 
-    console.log(details);
+    // console.log(details);
   };
 
   const handleImage = (e) => {
     const image = e.target.files[0];
-    console.log(image);
+    // console.log(image);
     dispatch(firebaseStorage.uploadImage(image, "images/ProfilePics"));
   };
 
@@ -37,7 +39,20 @@ function SetProfile({ setUserDetails }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUserDetails(details);
+
+    validatedInputs = validate({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNo: "",
+      city: "",
+      country: "",
+      ...details,
+    });
+
+    // console.log(details);
+
+    validatedInputs.status && setUserDetails(details);
   };
 
   useEffect(() => {
@@ -45,7 +60,7 @@ function SetProfile({ setUserDetails }) {
       setDetails((prev) => {
         return { ...prev, imageUrl: url };
       });
-    console.log(details);
+    // console.log(details);
   }, [url]);
 
   return (
@@ -155,7 +170,7 @@ function SetProfile({ setUserDetails }) {
                         </label>
                         <input
                           type="text"
-                          name="emailAddress"
+                          name="email"
                           id="email-address"
                           autoComplete="email"
                           className="mt-1 block w-full p-3 border rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700  dark:border-gray-600"

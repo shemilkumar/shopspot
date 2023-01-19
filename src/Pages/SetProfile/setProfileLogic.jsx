@@ -14,7 +14,7 @@ function SetProfileLogic() {
     navigate("/profile");
   };
 
-  console.log(uid);
+  // console.log(uid);
 
   return (
     <>

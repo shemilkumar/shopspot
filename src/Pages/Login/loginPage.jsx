@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import validate from "../../Helper/validation";
 
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 
 function LoginPage({ login }) {
+  let validatedInputs;
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
   const loginHandle = (e) => {
     e.preventDefault();
-    setLoginEmail("");
-    setLoginPassword("");
 
-    login(loginEmail, loginPassword);
+    validatedInputs = validate({ email: loginEmail, password: loginPassword });
+
+    if (validatedInputs.status) {
+      login(loginEmail, loginPassword);
+      setLoginEmail("");
+      setLoginPassword("");
+    }
   };
 
   return (
@@ -38,6 +44,26 @@ function LoginPage({ login }) {
                 required
               />
 
+              {/* {showError && (
+                <span className="text-sm text-red-500 px-3 py-1">
+                  {validatedInputs.err}
+                  working
+                </span>
+              )} */}
+
+              {/* <span className="text-sm text-red-500 px-3 py-1">
+                {validatedInputs?.err ? validatedInputs.err : ""}
+              </span> */}
+
+              {/* <span
+                className={`${
+                  validatedInputs?.err ? "" : "hidden"
+                } text-sm text-red-500 px-3 py-1`}
+              >
+                {validatedInputs?.err ? validatedInputs?.err : ""}
+                working
+              </span> */}
+
               <input
                 type="password"
                 className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900"
@@ -47,6 +73,12 @@ function LoginPage({ login }) {
                 onChange={(e) => setLoginPassword(e.target.value)}
                 required
               />
+
+              {/* {showError && validatedInputs && (
+                <span className={`text-sm text-red-500 px-3 py-1`}>
+                  {validatedInputs.err}
+                </span>
+              )} */}
 
               <button
                 type="submit"

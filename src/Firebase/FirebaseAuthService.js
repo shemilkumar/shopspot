@@ -54,10 +54,17 @@ class FirebaseAuthService {
             navigate("/");
             console.log("Data successfully saved in Storage");
           })
-          .catch((err) => alert(err.message));
+          .catch((err) => {
+            // console.log(err.message.toString());
+            if (err.message.toString().includes("email-already-in-use"))
+              alert("This email is already in use, Please enter another email");
+
+            if (err.message.toString().includes("at least 6 characters"))
+              alert("Password should contain atleast 6 characters");
+          });
       };
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   }
 
@@ -75,10 +82,19 @@ class FirebaseAuthService {
 
             navigate("/");
           })
-          .catch((error) => alert(error.message));
+          .catch((err) => {
+            console.log(err);
+            if (err.message.toString().includes("user-not-found"))
+              alert(
+                "Incorrect email, if you are a new user please create account first"
+              );
+
+            if (err.message.toString().includes("wrong-password"))
+              alert("Incorrect password, Please enter password carefully");
+          });
       };
     } catch (error) {
-      console.log("k");
+      console.log(error);
     }
   }
 

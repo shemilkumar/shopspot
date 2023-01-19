@@ -4,8 +4,8 @@ import Navbar from "../Components/Navbar";
 import notFoundImage from "../assets/Images/404-computer.svg";
 import { Link } from "react-router-dom";
 
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
+// import "react-lazy-load-image-component/src/effects/blur.css";
 
 function PageNotFoundError() {
   return (
@@ -18,11 +18,7 @@ function PageNotFoundError() {
         <section className="m-auto dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div className="mx-auto max-w-screen-sm text-center">
-              <LazyLoadImage
-                effect="blur"
-                src={notFoundImage}
-                className="m-auto"
-              />
+              <img src={notFoundImage} className="m-auto" />
 
               <h1 className="mb-4 text-2xl tracking-wider font-extrabold lg:text-6xl text-primary-600 dark:text-primary-500">
                 404

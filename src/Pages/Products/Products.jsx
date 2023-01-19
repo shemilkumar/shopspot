@@ -20,7 +20,7 @@ function Home({ wholeProducts, filterCategory }) {
     (product) => product.id !== 29 && product.id !== 70 && product.id !== 45
   );
 
-  const popularProducts = fullProducts;
+  // const popularProducts = fullProducts;
   let categoryProducts = [];
 
   const [showMore, setShowMore] = useState(false);
@@ -30,6 +30,7 @@ function Home({ wholeProducts, filterCategory }) {
   const [grid, setGrid] = useState("");
   const [searchText, setSearchText] = useState("");
   const [allProducts, setAllProducts] = useState(fullProducts);
+  const [popularProducts, setPopularProducts] = useState(fullProducts);
 
   const alertShow = () => {
     setShowAlert(true);
@@ -53,6 +54,8 @@ function Home({ wholeProducts, filterCategory }) {
           (product) =>
             product.category === "laptops" || product.category === "smartphones"
         );
+
+        setPopularProducts(categoryProducts);
         setAllProducts(categoryProducts);
         setGrid("grid");
         break;
@@ -61,6 +64,8 @@ function Home({ wholeProducts, filterCategory }) {
         categoryProducts = fullProducts.filter((product) =>
           fashionCategories.includes(product.category)
         );
+
+        setPopularProducts(categoryProducts);
         setAllProducts(categoryProducts);
         setGrid("grid");
         break;
@@ -81,12 +86,15 @@ function Home({ wholeProducts, filterCategory }) {
         product.brand.toLowerCase().includes(searchInput.toLowerCase())
     );
 
+    setPopularProducts(filteredProducts);
     setAllProducts(filteredProducts);
   };
 
   const categoryFilter = (cat) => {
+    screen.width <= 1120 && setShowFilter(!showFilter);
+
     if (cat === "All") {
-      setAllProducts(popularProducts);
+      setAllProducts(fullProducts);
       return;
     }
 
@@ -94,15 +102,21 @@ function Home({ wholeProducts, filterCategory }) {
       (product) => product.category.toLowerCase() === cat.toLowerCase()
     );
 
+    setPopularProducts(filteredProducts);
     setAllProducts(filteredProducts);
+    // console.log("all =>", allProducts, "full =>", fullProducts);
   };
 
   const discountFilter = (value) => {
+    screen.width <= 1120 && setShowFilter(!showFilter);
+
     if (value === "0") {
       console.log(value);
       const filteredProducts = fullProducts.filter(
         (product) => product.discountPercentage < 5
       );
+
+      setPopularProducts(filteredProducts);
       setAllProducts(filteredProducts);
       return;
     }
@@ -110,35 +124,37 @@ function Home({ wholeProducts, filterCategory }) {
     const filteredProducts = fullProducts.filter(
       (product) => product.discountPercentage >= +value
     );
+    setPopularProducts(filteredProducts);
     setAllProducts(filteredProducts);
   };
 
-  // let sortedProducts;
+  // console.log(allProducts);
+  let sortedProducts;
 
   const sortProducts = (value) => {
     switch (value) {
       case "priceLtoH":
-        fullProducts.sort((a, b) => a.price - b.price);
-        setAllProducts(fullProducts);
+        sortedProducts = [...allProducts].sort((a, b) => a.price - b.price);
+        setAllProducts(sortedProducts);
         // console.log(allProducts);
         break;
 
       case "priceHtoL":
-        fullProducts.sort((a, b) => b.price - a.price);
-        setAllProducts(fullProducts);
+        sortedProducts = [...allProducts].sort((a, b) => b.price - a.price);
+        setAllProducts(sortedProducts);
         // console.log(allProducts);
         break;
 
       case "rating":
-        fullProducts.sort((a, b) => b.rating - a.rating);
-        setAllProducts(fullProducts);
+        sortedProducts = [...allProducts].sort((a, b) => b.rating - a.rating);
+        setAllProducts(sortedProducts);
         break;
 
       case "discount":
-        fullProducts.sort(
+        sortedProducts = [...allProducts].sort(
           (a, b) => b.discountPercentage - a.discountPercentage
         );
-        setAllProducts(fullProducts);
+        setAllProducts(sortedProducts);
         break;
 
       default:
@@ -274,7 +290,11 @@ function Home({ wholeProducts, filterCategory }) {
 
               <div className="md:mt-8 mt-4">
                 <button
-                  onClick={(e) => sortProducts(e)}
+                  onClick={(e) => {
+                    screen.width <= 1120 && setShowFilter(!showFilter);
+                    setPopularProducts(fullProducts);
+                    setAllProducts(fullProducts);
+                  }}
                   className="py-2 px-4 bg-blue-600 text-white text-sm font-lg rounder-2xl hover:bg-blue-800"
                 >
                   Clear Filter

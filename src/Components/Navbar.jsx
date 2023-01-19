@@ -16,6 +16,9 @@ import { FiSearch } from "react-icons/fi";
 import { TfiMenu } from "react-icons/tfi";
 import { VscChromeClose } from "react-icons/vsc";
 
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
+
 function Navbar({ currentPage, pages }) {
   let uid = useAuth();
 
@@ -110,7 +113,12 @@ function Navbar({ currentPage, pages }) {
                   </div>
                 )}
                 <div onClick={() => setShowSearch(!showSearch)}>
-                  <FiSearch className="h-6 w-6 text-gray-400" />
+                  <FiSearch id="search" className="h-6 w-6 text-gray-400" />
+                  <Tooltip
+                    anchorId="search"
+                    content="Search user"
+                    place="bottom"
+                  />
                 </div>
               </div>
 
@@ -137,19 +145,31 @@ function Navbar({ currentPage, pages }) {
             </div> */}
             <div className="h-18 w-18">
               {uid ? (
-                <AiOutlinePoweroff
-                  onClick={() => {
-                    dispatch(FirebaseAuthService.signOutService());
-                    navigate("/login");
-                    // window.location.reload(false);
-                  }}
-                  className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
-                />
+                <>
+                  <AiOutlinePoweroff
+                    onClick={() => {
+                      dispatch(FirebaseAuthService.signOutService());
+                      navigate("/login");
+                      window.location.reload(false);
+                    }}
+                    className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
+                    id="logoffID"
+                  />
+                  <Tooltip
+                    anchorId="logoffID"
+                    content="Signout"
+                    place="bottom"
+                  />
+                </>
               ) : (
-                <MdLogin
-                  onClick={() => navigate("/login")}
-                  className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
-                />
+                <>
+                  <MdLogin
+                    onClick={() => navigate("/login")}
+                    className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
+                    id="loginID"
+                  />
+                  <Tooltip anchorId="loginID" content="Login" place="bottom" />
+                </>
               )}
             </div>
 
@@ -164,19 +184,41 @@ function Navbar({ currentPage, pages }) {
                 >
                   {cartProducts.length !== 0 && `${cartProducts.length}`}
                 </span>
-                <HiOutlineShoppingBag className="md:h-7 md:w-7 w-6 h-6 text-gray-400" />
+                <HiOutlineShoppingBag
+                  id="cart"
+                  className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
+                />
+                <Tooltip anchorId="cart" content="Cart" place="bottom" />
               </div>
             </Link>
 
             <Link to={`/profile`}>
               <div className="h-18 w-18 ml-4">
                 {user.imageUrl ? (
-                  <img
-                    src={user.imageUrl}
-                    className="md:h-7 md:w-7 w-6 h-6 rounded-full object-cover"
-                  />
+                  <>
+                    <img
+                      id="imgProfile"
+                      src={user.imageUrl}
+                      className="md:h-7 md:w-7 w-6 h-6 rounded-full object-cover"
+                    />
+                    <Tooltip
+                      anchorId="imgProfile"
+                      content="Profile"
+                      place="bottom"
+                    />
+                  </>
                 ) : (
-                  <CgProfile className="md:h-7 md:w-7 w-6 h-6 text-gray-400" />
+                  <>
+                    <CgProfile
+                      id="profile"
+                      className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
+                    />
+                    <Tooltip
+                      anchorId="profile"
+                      content="Profile"
+                      place="bottom"
+                    />
+                  </>
                 )}
               </div>
             </Link>

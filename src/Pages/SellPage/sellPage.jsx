@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import firebaseStorage from "../../Firebase/FirebaseStorageService";
 import { useDispatch, useSelector } from "react-redux";
 import { categories } from "../../Constants/constants";
+import validate from "../../Helper/validation";
 
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
@@ -9,6 +10,7 @@ import ImageUpload from "../../Components/ImageUpload";
 import ShortUniqueId from "short-unique-id";
 
 function SellPage({ setSellProduct }) {
+  let validateInputs;
   const uud = new ShortUniqueId({ length: 6, dictionary: "alpha" });
   const uudId = uud();
   let id;
@@ -53,25 +55,34 @@ function SellPage({ setSellProduct }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(inputs.price);
-    if (inputs.title === undefined || inputs.title === "") {
-      alert("Product name required");
-      return;
-    }
-    if (inputs.brand === undefined || inputs.brand === "") {
-      alert("Product brand required");
-      return;
-    }
-    if (inputs.category === undefined || inputs.category === "") {
-      alert("Product category required");
-      return;
-    }
-    if (inputs.price === undefined || inputs.price === 0) {
-      alert("Product price required");
-      return;
-    }
+    // console.log(inputs.price);
+    // if (inputs.title === undefined || inputs.title === "") {
+    //   alert("Product name required");
+    //   return;
+    // }
+    // if (inputs.brand === undefined || inputs.brand === "") {
+    //   alert("Product brand required");
+    //   return;
+    // }
+    // if (inputs.category === undefined || inputs.category === "") {
+    //   alert("Product category required");
+    //   return;
+    // }
+    // if (inputs.price === undefined || inputs.price === 0) {
+    //   alert("Product price required");
+    //   return;
+    // }
 
-    setSellProduct(inputs);
+    validateInputs = validate({
+      title: "",
+      brand: "",
+      category: "",
+      description: "",
+      price: "",
+      ...inputs,
+    });
+
+    validateInputs.status && setSellProduct(inputs);
   };
 
   useEffect(() => {

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import validate from "../../Helper/validation";
 
 import Footer from "../../Components/Footer";
 import Navbar from "../../Components/Navbar";
 
 function SignUpPage({ signUp }) {
+  let validatedInputs;
   const [name, setName] = useState("");
   const [signUpEmail, setSignUpEmail] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
@@ -13,18 +15,26 @@ function SignUpPage({ signUp }) {
   const signUpHandle = (e) => {
     e.preventDefault();
 
-    if (!name) alert("Name required");
-    if (!signUpEmail) alert("Email required");
-    if (!signUpPassword) alert("Password required");
+    // if (!name) alert("Name required");
+    // if (!signUpEmail) alert("Email required");
+    // if (!signUpPassword) alert("Password required");
+    validatedInputs = validate({
+      "Full name": name,
+      email: signUpEmail,
+      password: signUpPassword,
+      "Confirm Password": confirmPassword,
+    });
 
-    if (!name || !signUpEmail || !signUpPassword) return;
+    // if (!name || !signUpEmail || !signUpPassword) return;
 
-    signUp(signUpEmail, signUpPassword, confirmPassword, name);
-
-    setName("");
-    setSignUpEmail("");
-    setSignUpPassword("");
-    setConfirmPassword("");
+    if (validatedInputs.status) {
+      console.log("success");
+      signUp(signUpEmail, signUpPassword, confirmPassword, name);
+      setName("");
+      setSignUpEmail("");
+      setSignUpPassword("");
+      setConfirmPassword("");
+    }
   };
 
   return (
@@ -54,7 +64,9 @@ function SignUpPage({ signUp }) {
 
               <input
                 type="text"
-                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900"
+                className={`${
+                  signUpEmail.length > 4 ? "border-green-500" : ""
+                } block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900`}
                 name="email"
                 placeholder="Email"
                 value={signUpEmail}
@@ -64,7 +76,9 @@ function SignUpPage({ signUp }) {
 
               <input
                 type="password"
-                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900"
+                className={`${
+                  signUpPassword.length >= 6 ? "border-green-500" : ""
+                } block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900`}
                 name="password"
                 placeholder="Password"
                 value={signUpPassword}
@@ -73,7 +87,9 @@ function SignUpPage({ signUp }) {
               />
               <input
                 type="password"
-                className="block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900"
+                className={`${
+                  confirmPassword.length >= 6 ? "border-green-500" : ""
+                } block border-0 border-b-2 outline-none border-grey-light w-full p-3 rounded mb-4 dark:bg-gray-900`}
                 name="confirm_password"
                 placeholder="Confirm Password"
                 value={confirmPassword}

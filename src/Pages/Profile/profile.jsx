@@ -37,7 +37,7 @@ function Profile({ user, sellProductByUser, userUid }) {
                 </div>
 
                 <h1 className="font-md text-gray-400 mb-4">
-                  {user.emailAddress ? user.emailAddress : user.email}
+                  {user.email ? user.email : ""}
                 </h1>
 
                 <ul className="hidden md:flex space-x-8 mb-4">

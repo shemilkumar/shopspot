@@ -4,6 +4,7 @@ import useAuth from "../../Firebase/useAuth";
 import firebaseDbService from "../../Firebase/FirebaseDbService";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import FirebaseDbService from "../../Firebase/FirebaseDbService";
 
 function SellPageLogic() {
   const uid = useAuth();
@@ -19,9 +20,17 @@ function SellPageLogic() {
     // !uid && navigate("/login");
   }, [sellProductByUser, uid]);
 
-  const setSellProduct = (sellProduct) =>
-    uid && firebaseDbService.setSellProductData(uid, sellProduct, navigate);
-
+  const setSellProduct = async (sellProduct) => {
+    const soldUser = await FirebaseDbService.getSingleUserData(uid);
+    // console.log(soldUser);
+    // console.log({ ...sellProduct, soldUser });
+    uid &&
+      firebaseDbService.setSellProductData(
+        uid,
+        { ...sellProduct, soldUser },
+        navigate
+      );
+  };
   // const show = (e) => {
   //   e.preventDefault();
   //   uid && dispatch(firebaseDbService.getSellProductsByUser(uid));

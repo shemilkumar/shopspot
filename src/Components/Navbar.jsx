@@ -15,6 +15,7 @@ import { AiOutlinePoweroff } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { TfiMenu } from "react-icons/tfi";
 import { VscChromeClose } from "react-icons/vsc";
+import { MdDarkMode } from "react-icons/md";
 
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
@@ -33,11 +34,30 @@ function Navbar({ currentPage, pages }) {
   const [showSearch, setShowSearch] = useState(false);
   const [openNav, setOpenNav] = useState(false);
 
-  const [online, setOnline] = useState(navigator.onLine);
+  // const [online, setOnline] = useState(navigator.onLine);
   // console.log(online);
+  const [theme, setTheme] = useState(null);
 
   const [show, setShow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    // if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+    //   setTheme("dark");
+    // else setTheme("light");
+    const preferedTheme = localStorage.getItem("theme");
+
+    if (preferedTheme) setTheme(preferedTheme);
+    else {
+      localStorage.setItem("theme", "light");
+      setTheme(localStorage.getItem("theme"));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (theme === "dark") document.querySelector("body").classList.add("dark");
+    else document.querySelector("body").classList.remove("dark");
+  }, [theme]);
 
   const controlNavbar = () => {
     if (typeof window !== "undefined") {
@@ -79,6 +99,15 @@ function Navbar({ currentPage, pages }) {
       };
     }
   }, [uid, lastScrollY]);
+
+  const handleThemeSwitch = () => {
+    // console.log(theme);
+    const changedTheme = theme === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", changedTheme);
+    // console.log(localStorage.getItem("theme"));
+
+    setTheme(changedTheme);
+  };
 
   return (
     <div
@@ -144,6 +173,17 @@ function Navbar({ currentPage, pages }) {
             {/* <div className="h-18 w-18">
             </div> */}
             <div className="h-18 w-18">
+              <MdDarkMode
+                id="darkMode"
+                className={`${
+                  theme === "light" ? "text-gray-900" : ""
+                } md:h-7 md:w-7 w-6 h-6 text-gray-400 hidden md:flex`}
+                onClick={handleThemeSwitch}
+              />
+              <Tooltip anchorId="darkMode" content="Dark mode" place="bottom" />
+            </div>
+
+            <div className="h-18 w-18 ml-4">
               {uid ? (
                 <>
                   <AiOutlinePoweroff

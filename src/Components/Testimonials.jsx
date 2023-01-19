@@ -4,7 +4,7 @@ import { testimonialData } from "../Constants/constants";
 function Testimonials() {
   return (
     <div>
-      <section className="flex justify-center md:min-h-screen border-b-2 dark:text-teal-50">
+      <section className="flex justify-center md:min-h-screen border-b-2 dark:text-teal-50 dark:bg-gray-900">
         <div className="m-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -22,7 +22,7 @@ function Testimonials() {
           <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-16 lg:grid-cols-3 ">
             {testimonialData.map((testimonial, i) => {
               return (
-                <div key={i}>
+                <div key={i} className=" dark:bg-gray-850">
                   <img
                     alt="avatar"
                     src={testimonial.avatar}

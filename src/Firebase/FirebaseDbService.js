@@ -147,11 +147,23 @@ class FirebaseDbService {
                 type: ActionTypes.SET_USER,
                 payload: docSnap.data(),
               });
-        } else console.log("something");
+
+          // return docSnap.data();
+        } else console.log("failed to get user data");
       };
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async getSingleUserData(uid) {
+    const docRef = doc(db, "users", uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      return docSnap.data();
+    }
+    return false;
   }
 
   getAllUsers() {
@@ -175,9 +187,11 @@ class FirebaseDbService {
   }
 
   setSellProductData(uid, data, navigate) {
-    const sellProductDocRef = collection(db, "sellProducts");
-    // console.log(uid, data, sellProductDocRef);
-    addDoc(sellProductDocRef, {
+    // const sellProductDocRef = collection(db, "sellProducts");
+
+    const sellProductDocRef = doc(db, "sellProducts", `${data.id}`);
+
+    setDoc(sellProductDocRef, {
       uid,
       ...data,
     })
@@ -186,6 +200,16 @@ class FirebaseDbService {
         navigate("/profile");
       })
       .catch((error) => console.log(error.message));
+
+    // addDoc(sellProductDocRef, {
+    //   uid,
+    //   ...data,
+    // })
+    //   .then(() => {
+    //     console.log("Selling product details added to the Database");
+    //     navigate("/profile");
+    //   })
+    //   .catch((error) => console.log(error.message));
   }
 
   getSellProduct(id) {
@@ -209,6 +233,16 @@ class FirebaseDbService {
           // console.log("hi", doc.data());
         });
       };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async deleteSellProductPost(id) {
+    try {
+      await deleteDoc(doc(db, "sellProducts", `${id}`));
+
+      console.log("deleted");
     } catch (error) {
       console.log(error);
     }

@@ -8,7 +8,7 @@ import Countdown from "../Components/Countdown";
 function Hero({ alertShow }) {
   return (
     <div>
-      <div className="w-full pt-20 md:border-b-2 md:pb-20 pb-10">
+      <div className="w-full pt-20 md:border-b-2 md:pb-20 pb-10 dark:bg-gray-900">
         <div className="w-full h-full flex justify-center items-center">
           <div className="md:w-[90%] w-[95%] md:px-3 px-0">
             <div className="h-1/3 text-center flex flex-col dark:text-teal-50">

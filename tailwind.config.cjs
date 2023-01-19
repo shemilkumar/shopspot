@@ -5,6 +5,8 @@ module.exports = {
     "./src/**/*.{js,jsx}",
     // "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: "class",
+  // important: ".app-wrapper",
   mode: "jit",
   theme: {
     extend: {

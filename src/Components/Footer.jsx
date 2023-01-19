@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="w-full bottom-0 dark:text-teal-50 mt-1">
+    <div className="w-full bottom-0 dark:text-teal-50 dark:bg-gray-900">
       <footer className="p-4 max-w-same m-auto sm:p-6 dark:bg-gray-900">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
-              {/* <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="mr-3 h-8"
-                alt="FlowBite Logo"
-              /> */}
-              <span className="self-center text-2xl font-semibold whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-br from-purple-500 to-blue-600">
+              <img
+                src="../../android-chrome-192x192.png"
+                className="mr-2 h-10 rounded-full"
+                alt="Shopspot Logo"
+              />
+              <span className="self-center text-2xl md:text-3xl font-semibold whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-br from-purple-500 to-blue-600">
                 SHOPSPOT
               </span>
             </a>
@@ -75,7 +75,7 @@ function Footer() {
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            © 2022{" "}
+            © 2023{" "}
             <a href="https://flowbite.com/" className="hover:underline">
               shopspot
             </a>

@@ -58,7 +58,7 @@ function CartList({ cartProduct, uid }) {
             <Link to={"/cart"}>
               <div className="md:mt-8 mt-4 mb-4">
                 <span
-                  className="rounded-full text-red-600 font-semibold tracking-widest cursor-pointer md:hover:bg-red-100 "
+                  className="p-2 rounded-full text-red-600 font-semibold tracking-widest cursor-pointer hover:border-2 md:hover:border-red-500 "
                   onClick={() => {
                     dispatch(
                       FirebaseDbService.deleteCartProduct(uid, cartProduct.id)

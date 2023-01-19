@@ -164,7 +164,9 @@ function Home({ wholeProducts, filterCategory }) {
   };
 
   return (
-    <div className={showFilter ? "fixed" : ""}>
+    <div
+      className={showFilter ? "fixed dark:bg-gray-900" : " dark:bg-gray-900"}
+    >
       <Navbar
         currentPage="Products"
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}

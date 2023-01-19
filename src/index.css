@@ -26,19 +26,25 @@
   scroll-behavior: smooth;
 }
 
+body .dark{
+  background-color: rgb(17 24 39);
+}
+
 body{
   font-family: Sen, sans-serif;
   background-color: #f7fafc;
+  /* background-color: red; */
 }
 
-@media screen and (prefers-color-scheme: dark) {
+
+
+@media screen and (max-width: 480px) and (prefers-color-scheme: dark) {
   body {
     background-color: rgb(17 24 39);
-    /* background: linear-gradient(#011424, #400554); */
-  }
+  } 
 }
 
-
+/*  */
 
 /* .text-gradient {
   background: radial-gradient(

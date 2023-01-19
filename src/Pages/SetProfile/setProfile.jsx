@@ -64,21 +64,21 @@ function SetProfile({ setUserDetails }) {
   }, [url]);
 
   return (
-    <>
+    <div className="dark:bg-gray-900">
       <Navbar
         currentPage=""
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
 
-      <div className="max-w-6xl min-h-screen m-auto p-4 dark:text-teal-50">
+      <div className="max-w-6xl min-h-screen m-auto p-4 dark:text-teal-50 dark:bg-gray-800">
         <h1 className="text-3xl font-semibold tracking-wider text-center mt-24">
           Set Your Profile
         </h1>
-        <div className="md:mt-6 mt-10 bg-gray-100 dark:bg-gray-900">
+        <div className="md:mt-6 mt-10 bg-gray-100 dark:bg-gray-800">
           <div className="grid gap-6">
             <div className="md:col-span-1 my-auto md:ml-6">
               <div className="px-4 sm:px-0">
-                <h3 className="text-lg font-medium leading-6 text-gray-900">
+                <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-teal-50">
                   Personal Information
                 </h3>
                 <p className="mt-1 text-sm text-gray-600  dark:text-teal-50">
@@ -329,7 +329,7 @@ function SetProfile({ setUserDetails }) {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -10,9 +10,9 @@ function Profile({ user, sellProductByUser, userUid }) {
         currentPage="Profile"
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
-      <div>
-        <main className="min-h-screen mt-28 bg-gray-100 bg-opacity-25 dark:bg-gray-900 dark:text-teal-50">
-          <div className="md:w-8/12 md:mx-auto mb-8">
+      <div className="dark:bg-gray-900">
+        <main className="min-h-screen pt-28 bg-gray-100 bg-opacity-0 dark:text-teal-50">
+          <div className="md:w-8/12 md:mx-auto pb-8">
             <header className="flex md:flex-row flex-wrap md:items-center p-4 md:py-8">
               <div className="md:w-3/12 md:ml-16">
                 <img
@@ -97,9 +97,9 @@ function Profile({ user, sellProductByUser, userUid }) {
               <ul
                 className="flex items-center justify-around md:justify-center space-x-12  
                             uppercase tracking-widest font-semibold text-xs text-gray-600
-                            border-t"
+                            border-t dark:text-teal-50"
               >
-                <li className="md:border-t md:border-gray-700 md:-mt-px md:text-gray-700">
+                <li className="md:border-t md:border-gray-700 dark:border-teal-50 md:-mt-px md:text-gray-700 dark:text-teal-50">
                   <a className="inline-block p-3">
                     <i className="fas fa-th-large text-xl md:text-xs"></i>
                     <span className="hidden md:inline">posts</span>

@@ -7,10 +7,16 @@ import { priceConvert } from "../../Helper/priceConvert";
 
 import { TbTruckDelivery, TbReplace, TbShieldCheck } from "react-icons/tb";
 import { GiTakeMyMoney } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 function ProductDetail({ product, navigate, uid }) {
   let star = product.rating ? Math.floor(product.rating / 1) : null;
   if (star === 0) star = 1;
+
+  const handleDeletePost = async () => {
+    await FirebaseDbService.deleteSellProductPost(product.id);
+    navigate("/profile");
+  };
 
   return (
     <>
@@ -19,7 +25,7 @@ function ProductDetail({ product, navigate, uid }) {
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
 
-      <div className="w-full min-h-screen flex justify-center dark:text-teal-50">
+      <div className="w-full min-h-screen flex justify-center dark:text-teal-50 dark:bg-gray-900">
         <div className="grid grid-cols-1 md:grid-cols-2 md:m-auto mt-24 w-[90%] h-[80%]">
           <div className="m-auto w-[100%] h-[100%]">
             <ImageGrid images={product.images} />
@@ -131,6 +137,26 @@ function ProductDetail({ product, navigate, uid }) {
                 </p>
               </div>
             </div>
+
+            {product.soldUser && (
+              <div className="m-4 w-10/12 md:w-2/3">
+                <h1 className="text-gray-600 font-semibold px-2">Sold By</h1>
+                <Link to={`/profile/${product.soldUser.uid}`}>
+                  <span className="px-2.5 py-1 font-semibold text-sm border-blue-700 border text-blue-700 rounded-full cursor-pointer hover:bg-blue-600 hover:text-white">
+                    {product.soldUser?.name ? product.soldUser.name : ""}
+                  </span>
+                </Link>
+              </div>
+            )}
+
+            {product.soldUser && product.soldUser.uid === uid && (
+              <button
+                className="uppercase text-sm p-2 rounded mx-4 text-teal-50 bg-gradient-to-br from-red-700 to-pink-600"
+                onClick={handleDeletePost}
+              >
+                Delete post
+              </button>
+            )}
 
             <div className="flex my-10 text-sm md:text-lg font-lg  font-sen">
               <button

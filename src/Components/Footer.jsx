@@ -9,8 +9,8 @@ function Footer() {
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
               <img
-                src="../../android-chrome-192x192.png"
-                className="mr-2 h-10 rounded-full"
+                src="../../favicon.ico"
+                className="mr-2 h-10 rounded-xl"
                 alt="Shopspot Logo"
               />
               <span className="self-center text-2xl md:text-3xl font-semibold whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-br from-purple-500 to-blue-600">
@@ -76,7 +76,7 @@ function Footer() {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
-            <a href="https://flowbite.com/" className="hover:underline">
+            <a href="#" className="hover:underline">
               shopspot
             </a>
             . All Rights Reserved.

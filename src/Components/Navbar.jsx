@@ -28,6 +28,7 @@ function Navbar({ currentPage, pages }) {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user.user);
+  // console.log(user);
 
   const cartProducts = useSelector((state) => state.cart.cart);
 
@@ -123,7 +124,7 @@ function Navbar({ currentPage, pages }) {
             : "md:bg-transparent bg-gray-200 md:dark:bg-gray-900"
         } fixed md:flex flex-col w-full top-0 z-20 border-gray-200 md:px-2 sm:px-4 py-2.5 dark:bg-gray-900 transition-all ease-in-out duration-500`}
       >
-        <div className="relative flex m-auto w-[90%] md:flex-wrap md:flex-row md:items-center md:mx-auto md:max-w-same">
+        <div className="relative flex m-auto w-[95%] md:w-[90%] md:flex-wrap md:flex-row md:items-center md:mx-auto md:max-w-same">
           <div
             className={`${
               openNav ? "pb-4 border-b-2 border-blue-700 " : ""
@@ -178,9 +179,7 @@ function Navbar({ currentPage, pages }) {
                 <>
                   <BsSun
                     id="lightMode"
-                    className={`${
-                      theme === "light" ? "text-gray-900" : ""
-                    } md:h-7 md:w-7 w-6 h-6 text-gray-400 hidden md:flex`}
+                    className={`md:h-7 md:w-7 w-6 h-6 text-gray-400 hidden md:flex`}
                     onClick={handleThemeSwitch}
                   />
                   <Tooltip
@@ -193,9 +192,7 @@ function Navbar({ currentPage, pages }) {
                 <>
                   <MdDarkMode
                     id="darkMode"
-                    className={`${
-                      theme === "light" ? "text-gray-900" : ""
-                    } md:h-7 md:w-7 w-6 h-6 text-gray-700 hidden md:flex`}
+                    className={`md:h-7 md:w-7 w-6 h-6 text-gray-700 hidden md:flex`}
                     onClick={handleThemeSwitch}
                   />
                   <Tooltip
@@ -207,38 +204,34 @@ function Navbar({ currentPage, pages }) {
               )}
             </div>
 
-            <div className="h-18 w-18 ml-4">
-              {uid ? (
-                <>
-                  <AiOutlinePoweroff
-                    onClick={() => {
-                      dispatch(FirebaseAuthService.signOutService());
-                      navigate("/login");
-                      window.location.reload(false);
-                    }}
-                    className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
-                    id="logoffID"
-                  />
-                  <Tooltip
-                    anchorId="logoffID"
-                    content="Signout"
-                    place="bottom"
-                  />
-                </>
-              ) : (
-                <>
-                  <MdLogin
-                    onClick={() => navigate("/login")}
-                    className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
-                    id="loginID"
-                  />
-                  <Tooltip anchorId="loginID" content="Login" place="bottom" />
-                </>
-              )}
-            </div>
+            {/* <div className="h-18 w-18 ml-4"> */}
+            {uid ? (
+              <>
+                <AiOutlinePoweroff
+                  onClick={() => {
+                    dispatch(FirebaseAuthService.signOutService());
+                    navigate("/login");
+                    window.location.reload(false);
+                  }}
+                  className="ml-2 md:ml-4 md:h-7 md:w-7 w-6 h-6 text-gray-400 md:flex"
+                  id="logoffID"
+                />
+                <Tooltip anchorId="logoffID" content="Signout" place="bottom" />
+              </>
+            ) : (
+              <>
+                <MdLogin
+                  onClick={() => navigate("/login")}
+                  className="ml-2 md:ml-4 md:h-7 md:w-7 w-6 h-6 text-gray-400"
+                  id="loginID"
+                />
+                <Tooltip anchorId="loginID" content="Login" place="bottom" />
+              </>
+            )}
+            {/* </div> */}
 
             <Link to={`/cart`}>
-              <div className="relative h-18 w-18 ml-4">
+              <div className="relative h-18 w-18">
                 <span
                   className={
                     cartProducts.length !== 0
@@ -250,47 +243,47 @@ function Navbar({ currentPage, pages }) {
                 </span>
                 <HiOutlineShoppingBag
                   id="cart"
-                  className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
+                  className="ml-2 md:ml-4 md:h-7 md:w-7 w-6 h-6 text-gray-400"
                 />
                 <Tooltip anchorId="cart" content="Cart" place="bottom" />
               </div>
             </Link>
 
             <Link to={`/profile`}>
-              <div className="h-18 w-18 ml-4">
-                {user.imageUrl ? (
-                  <>
-                    <img
-                      id="imgProfile"
-                      src={user.imageUrl}
-                      className="md:h-7 md:w-7 w-6 h-6 rounded-full object-cover"
-                    />
-                    <Tooltip
+              {/* <div className="md:h-18 md:w-18 ml-4 w-6 h-6"> */}
+              {user.imageUrl ? (
+                <div>
+                  <img
+                    id="imgProfile"
+                    src={user.imageUrl}
+                    className="ml-2 md:ml-4 md:h-7 md:w-7 w-6 h-6 rounded-full object-cover"
+                  />
+                  {/* <Tooltip
                       anchorId="imgProfile"
                       content="Profile"
                       place="bottom"
-                    />
-                  </>
-                ) : (
-                  <>
-                    <CgProfile
-                      id="profile"
-                      className="md:h-7 md:w-7 w-6 h-6 text-gray-400"
-                    />
-                    <Tooltip
-                      anchorId="profile"
-                      content="Profile"
-                      place="bottom"
-                    />
-                  </>
-                )}
-              </div>
+                    /> */}
+                </div>
+              ) : (
+                <>
+                  <CgProfile
+                    id="profile"
+                    className="ml-2 md:ml-4 md:h-7 md:w-7 w-6 h-6 text-gray-400"
+                  />
+                  <Tooltip
+                    anchorId="profile"
+                    content="Profile"
+                    place="bottom"
+                  />
+                </>
+              )}
+              {/* </div> */}
             </Link>
           </div>
 
           <div
             className={`${
-              openNav ? "top-16" : "-top-80"
+              openNav ? "top-16" : "-top-96"
             } md:flex md:w-1/3 md:static md:mt-0 fixed w-full left-0 bg-gray-200 dark:bg-gray-900 md:bg-transparent transition-all duration-500 ease-in-out`}
           >
             <ul className="md:m-auto flex flex-col  justify-center md:p-4 font-bold text-sm md:flex-row md:space-x-8 md:mb-0">
@@ -320,6 +313,31 @@ function Navbar({ currentPage, pages }) {
                   );
                 }
               })}
+
+              <li
+                className="flex items-center mb-5 md:mb-0 py-2 pl-6 pr-4 text-gray-700 dark:text-gray-400 rounded md:hidden"
+                onClick={handleThemeSwitch}
+              >
+                {theme === "dark" ? (
+                  <>
+                    <span className="mr-2">Light Mode</span>
+                    <BsSun
+                      id="lightMode"
+                      className={`md:h-7 md:w-7 w-5 h-5 text-gray-400 `}
+                      // onClick={handleThemeSwitch}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <span className="mr-2">Dark Mode</span>
+                    <MdDarkMode
+                      id="darkMode"
+                      className={`md:h-7 md:w-7 w-5 h-5 text-gray-700`}
+                      // onClick={handleThemeSwitch}
+                    />
+                  </>
+                )}
+              </li>
             </ul>
           </div>
         </div>
@@ -329,3 +347,43 @@ function Navbar({ currentPage, pages }) {
 }
 
 export default Navbar;
+
+// <div
+//   role="checkbox"
+//   aria-checked={isOn ? "true" : "false"}
+//   tabIndex={0}
+//   onKeyDown={handleKeyDown}
+//   onClick={handleClick}
+//   className={`cursor-pointer w-11 h-5 ${colour} rounded-full relative px-1.5 flex items-center${
+//     isOn ? "" : " justify-end"
+//   }`}
+// >
+//   <div
+//     className={`w-4 h-4 rounded-full absolute transform duration-200 ease-out bg-white left-0.5 ${
+//       isOn ? "translate-x-6" : "translate-x-0"
+//     }`}
+//   />
+//   {isOn ? (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className="h-3 w-3 text-white"
+//       viewBox="0 0 20 20"
+//       fill="currentColor"
+//     >
+//       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+//     </svg>
+//   ) : (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className="h-3 w-3 text-white"
+//       viewBox="0 0 20 20"
+//       fill="currentColor"
+//     >
+//       <path
+//         fillRule="evenodd"
+//         d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+//         clipRule="evenodd"
+//       />
+//     </svg>
+//   )}
+// </div>;

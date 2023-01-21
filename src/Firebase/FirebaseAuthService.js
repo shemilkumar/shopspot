@@ -100,7 +100,7 @@ class FirebaseAuthService {
 
   signOutService() {
     return async function (dispatch) {
-      signOut(auth).then(() => {
+      await signOut(auth).then(() => {
         console.log("signOut");
 
         dispatch({

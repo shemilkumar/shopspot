@@ -29,25 +29,25 @@ function Profile({ user, sellProductByUser, userUid }) {
 
               <div className="w-8/12 md:w-7/12 ml-4">
                 <div className="md:flex md:flex-wrap md:items-center">
-                  <h2 className="text-2xl md:text-3xl inline-block font-light md:mr-2 mb-2 sm:mb-0 dark:text-transparent bg-clip-text bg-gradient-to-tr from-pink-400 to-purple-400">
+                  <h2 className="text-2xl md:text-3xl inline-block font-light md:mr-2 sm:mb-0 dark:text-transparent bg-clip-text bg-gradient-to-tr from-pink-400 to-purple-400">
                     {user.firstName && user.lastName
                       ? user.firstName + " " + user.lastName
                       : user.name}
                   </h2>
                 </div>
 
-                <h1 className="font-md text-gray-400 mb-4">
+                <h1 className="font-md text-xs md:text-base text-gray-400 mb-2">
+                  {!user.email && user.emailAddress ? user.emailAddress : ""}
                   {user.email ? user.email : ""}
                 </h1>
 
-                <ul className="hidden md:flex space-x-8 mb-4">
-                  <li>
-                    <span className="font-semibold">
-                      {sellProductByUser.length}{" "}
-                    </span>
-                    posts
-                  </li>
-                </ul>
+                <div className="hidden md:flex space-x-8 mb-4">
+                  <span className="font-semibold">
+                    {sellProductByUser.length}{" "}
+                  </span>
+                  posts
+                </div>
+
                 <div className="hidden md:block">
                   <p
                     className={`${
@@ -73,21 +73,25 @@ function Profile({ user, sellProductByUser, userUid }) {
                 </div>
 
                 <div className="">
-                  <p
-                    className={
-                      user.firstName
-                        ? "hidden"
-                        : "text-sm font-sen text-gray-400"
-                    }
-                  >
-                    Profile is not completed
-                  </p>
                   {!userUid && (
-                    <Link to={"/set-profile"}>
-                      <button className="mt-4 py-1 px-1 text-xs rounded bg-blue-500 hover:bg-blue-600 text-white">
-                        Edit Profile
-                      </button>
-                    </Link>
+                    <>
+                      <p
+                        className={
+                          user.firstName
+                            ? "hidden"
+                            : "text-sm font-sen text-gray-400"
+                        }
+                      >
+                        Profile is not completed
+                      </p>
+                      <div className="flex">
+                        <Link to={"/set-profile"}>
+                          <button className="mr-2 mt-4 py-1 px-1 text-xs rounded bg-blue-500 hover:bg-blue-600 text-white">
+                            Edit Profile
+                          </button>
+                        </Link>
+                      </div>
+                    </>
                   )}
                 </div>
               </div>

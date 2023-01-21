@@ -8,12 +8,15 @@ import Countdown from "../Components/Countdown";
 function Hero({ alertShow }) {
   return (
     <div>
-      <div className="w-full pt-20 md:border-b-2 md:pb-20 pb-10 dark:bg-gray-900">
+      <div className="w-full pt-20 md:border-b-2 md:pb-20 pb-10 bg-gray-100 dark:bg-gray-900">
         <div className="w-full h-full flex justify-center items-center">
           <div className="md:w-[90%] w-[95%] md:px-3 px-0">
+            {/* <span className="bg-red-500 mt-3">HI</span> */}
             <div className="h-1/3 text-center flex flex-col dark:text-teal-50">
               <h1 className="text-3xl md:text-5xl font-bold">Products</h1>
-              Offer Closes in
+              <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-tr from-green-800 to-yellow-400">
+                Offer Closes in
+              </span>
               <div className="mt-2 text-3xl md:text-4xl font-medium font-poppins border-b-2 dark:border-gray-800 pb-5">
                 <Countdown />
               </div>

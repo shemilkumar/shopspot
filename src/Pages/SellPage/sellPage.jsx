@@ -103,8 +103,8 @@ function SellPage({ setSellProduct }) {
         currentPage="Sell"
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
-      <div className="w-full dark:bg-gray-900">
-        <div className="max-w-6xl min-h-screen m-auto p-4 dark:text-teal-50 dark:bg-gray-900">
+      <div className="w-full bg-gray-100 dark:bg-gray-900">
+        <div className="max-w-6xl min-h-screen m-auto p-4 dark:text-teal-50 bg-gray-100 dark:bg-gray-900">
           <h1 className="text-3xl font-semibold tracking-wider text-center mt-24">
             Sell your Product
           </h1>

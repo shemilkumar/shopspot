@@ -16,6 +16,7 @@ import { FiSearch } from "react-icons/fi";
 import { TfiMenu } from "react-icons/tfi";
 import { VscChromeClose } from "react-icons/vsc";
 import { MdDarkMode } from "react-icons/md";
+import { BsSun } from "react-icons/bs";
 
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
@@ -118,7 +119,7 @@ function Navbar({ currentPage, pages }) {
       <nav
         className={`${
           scroll
-            ? "bg-gray-100"
+            ? "bg-gray-100 shadow-md"
             : "md:bg-transparent bg-gray-200 md:dark:bg-gray-900"
         } fixed md:flex flex-col w-full top-0 z-20 border-gray-200 md:px-2 sm:px-4 py-2.5 dark:bg-gray-900 transition-all ease-in-out duration-500`}
       >
@@ -173,14 +174,37 @@ function Navbar({ currentPage, pages }) {
             {/* <div className="h-18 w-18">
             </div> */}
             <div className="h-18 w-18">
-              <MdDarkMode
-                id="darkMode"
-                className={`${
-                  theme === "light" ? "text-gray-900" : ""
-                } md:h-7 md:w-7 w-6 h-6 text-gray-400 hidden md:flex`}
-                onClick={handleThemeSwitch}
-              />
-              <Tooltip anchorId="darkMode" content="Dark mode" place="bottom" />
+              {theme === "dark" ? (
+                <>
+                  <BsSun
+                    id="lightMode"
+                    className={`${
+                      theme === "light" ? "text-gray-900" : ""
+                    } md:h-7 md:w-7 w-6 h-6 text-gray-400 hidden md:flex`}
+                    onClick={handleThemeSwitch}
+                  />
+                  <Tooltip
+                    anchorId="lightMode"
+                    content="Light mode"
+                    place="bottom"
+                  />
+                </>
+              ) : (
+                <>
+                  <MdDarkMode
+                    id="darkMode"
+                    className={`${
+                      theme === "light" ? "text-gray-900" : ""
+                    } md:h-7 md:w-7 w-6 h-6 text-gray-700 hidden md:flex`}
+                    onClick={handleThemeSwitch}
+                  />
+                  <Tooltip
+                    anchorId="darkMode"
+                    content="Dark mode"
+                    place="bottom"
+                  />
+                </>
+              )}
             </div>
 
             <div className="h-18 w-18 ml-4">

@@ -64,13 +64,13 @@ function SetProfile({ setUserDetails }) {
   }, [url]);
 
   return (
-    <div className="dark:bg-gray-900">
+    <div className="dark:bg-gray-900 bg-gray-100">
       <Navbar
         currentPage=""
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
 
-      <div className="max-w-6xl min-h-screen m-auto p-4 dark:text-teal-50 dark:bg-gray-800">
+      <div className="max-w-6xl min-h-screen m-auto p-4 dark:text-teal-50 bg-gray-100 dark:bg-gray-800">
         <h1 className="text-3xl font-semibold tracking-wider text-center mt-24">
           Set Your Profile
         </h1>

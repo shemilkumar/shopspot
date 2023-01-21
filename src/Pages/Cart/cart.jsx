@@ -33,7 +33,7 @@ function Cart({ cartProducts }) {
           currentPage="Cart"
           pages={["Home", "Products", "Sell", "Profile", "Cart"]}
         />
-        <div className="flex flex-col dark:text-teal-50 dark:bg-gray-900">
+        <div className="flex flex-col dark:text-teal-50 dark:bg-gray-900 bg-gray-100">
           <div className="w-full">
             <h1 className="md:text-5xl text-2xl font-semibold text-center mt-24 mb-8 md:mb-16 md:mx-24">
               Shopping Cart

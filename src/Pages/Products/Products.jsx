@@ -165,7 +165,12 @@ function Home({ wholeProducts, filterCategory }) {
 
   return (
     <div
-      className={showFilter ? "fixed dark:bg-gray-900" : " dark:bg-gray-900"}
+      className={
+        showFilter
+          ? "fixed dark:bg-gray-900 bg-gray-100"
+          : "bg-gray-100 dark:bg-gray-900"
+      }
+      s
     >
       <Navbar
         currentPage="Products"

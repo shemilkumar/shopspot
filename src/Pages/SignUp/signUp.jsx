@@ -45,7 +45,7 @@ function SignUpPage({ signUp }) {
       />
 
       <div>
-        <div className="bg-grey-lighter min-h-screen flex flex-col dark:bg-gray-900">
+        <div className="bg-grey-lighter min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
             <div className="bg-white dark:bg-gray-900 px-6 py-8 rounded shadow-md text-black dark:text-teal-50 w-full">
               <h1 className="mb-8 text-3xl text-center">Sign up</h1>

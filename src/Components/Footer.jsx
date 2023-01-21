@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="w-full bottom-0 dark:text-teal-50 dark:bg-gray-900">
+    <div className="w-full bottom-0 dark:text-teal-50 dark:bg-gray-900 bg-gray-100">
       <footer className="p-4 max-w-same m-auto sm:p-6 dark:bg-gray-900">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
-              <img
+              {/* <img
                 src="../../favicon.ico"
                 className="mr-2 h-10 rounded-xl"
                 alt="Shopspot Logo"
-              />
+              /> */}
               <span className="self-center text-2xl md:text-3xl font-semibold whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-br from-purple-500 to-blue-600">
                 SHOPSPOT
               </span>

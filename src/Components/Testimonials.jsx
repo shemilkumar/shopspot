@@ -4,7 +4,7 @@ import { testimonialData } from "../Constants/constants";
 function Testimonials() {
   return (
     <div>
-      <section className="flex justify-center md:min-h-screen border-b-2 dark:text-teal-50 dark:bg-gray-900">
+      <section className="flex justify-center md:min-h-screen border-b-2 dark:text-teal-50 bg-gray-100 dark:bg-gray-900">
         <div className="m-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">

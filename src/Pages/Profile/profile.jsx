@@ -10,7 +10,7 @@ function Profile({ user, sellProductByUser, userUid }) {
         currentPage="Profile"
         pages={["Home", "Products", "Sell", "Profile", "Cart"]}
       />
-      <div className="dark:bg-gray-900">
+      <div className="dark:bg-gray-900 bg-gray-100">
         <main className="min-h-screen pt-28 bg-gray-100 bg-opacity-0 dark:text-teal-50">
           <div className="md:w-8/12 md:mx-auto pb-8">
             <header className="flex md:flex-row flex-wrap md:items-center p-4 md:py-8">

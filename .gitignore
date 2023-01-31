@@ -7,8 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# node_modules
-# dist
+node_modules
+dist
+
 dist-ssr
 *.local
 
@@ -16,7 +17,7 @@ sample.json
 # package-lock.json
 # postcss.config.cjs
 # vite.config.js
-# firebase-config.js
+firebase-config.js
 
 # Editor directories and files
 .vscode/*

@@ -69,7 +69,7 @@ export const userCollectionRef = collection(db, "users");
 
 ```
   npm install
-  npm run start
+  npm run dev
 ```
 * Version: 1.5.2
 * License: MIT

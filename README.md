@@ -1,5 +1,9 @@
 # SHOPSPOT - Ecommerce Website
 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
+
 Live URL : **[https://shopspot-shemil.vercel.app](https://shopspot-shemil.vercel.app)**
 
 

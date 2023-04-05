@@ -1,6 +1,6 @@
 # SHOPSPOT - Ecommerce Website
 
-Live URL : [https://shopspot-shemil.vercel.app](https://shopspot-shemil.vercel.app)
+Live URL : **[https://shopspot-shemil.vercel.app](https://shopspot-shemil.vercel.app)**
 
 
 Built using React.js, Redux and Firebase as Database.
@@ -27,7 +27,6 @@ Built using React.js, Redux and Firebase as Database.
 * Vercel (Hosting)
 
 ## Features Included
-----------------------------------------------------
 * Ability to buy products and sell products
 * Product catalog browsing and search functionality
 * Multiple filtering and sort functionality
